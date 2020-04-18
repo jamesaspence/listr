@@ -1,12 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import selectActiveList from '../../redux/selectors/list/selectActiveList';
+import selectActiveListId from '../../redux/selectors/list/selectActiveListId';
 import ContentWrap from '../common/ContentWrap';
 import NoListFallback from './NoListFallback';
 import List from './List';
+import { toggleItem } from '../../redux/actions/list';
 
 const ActiveListContainer = () => {
   const list = useSelector(selectActiveList);
+  const activeList = useSelector(selectActiveListId);
+  const dispatch = useDispatch();
 
   if (list == null) {
     return (
@@ -16,16 +20,14 @@ const ActiveListContainer = () => {
     );
   }
 
-  const onCheck = event => {
-    event.preventDefault();
-    console.log('event', event);
+  const onToggle = index => {
+    dispatch(toggleItem(activeList, index));
   };
 
-  console.log('activeList', list);
   return (
     <ContentWrap>
       <div className="ActiveListContainer">
-        <List items={list} onCheck={onCheck} />
+        <List items={list} onCheck={onToggle} />
       </div>
     </ContentWrap>
   );

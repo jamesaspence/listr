@@ -6,11 +6,18 @@ const Checkbox = ({
   checked,
   index,
   onChange
-}) => (
-  <div className={`Checkbox ${className}`}>
-    <input className="Checkbox__toggle" type="checkbox" id={`Checkbox-${index + 1}`} onChange={onChange} checked={checked}/>
-    <label className="Checkbox__toggleLabel" htmlFor={`Checkbox-${index + 1}`}/>
-  </div>
-);
+}) => {
+  const onToggle = event => {
+    event.preventDefault();
+    onChange(index, event);
+  };
+
+  return (
+    <div className={`Checkbox ${className}`} onClick={onToggle}>
+      <input className="Checkbox__toggle" type="checkbox" id={`Checkbox-${index + 1}`} onChange={onToggle} checked={checked}/>
+      <label className="Checkbox__toggleLabel" htmlFor={`Checkbox-${index + 1}`}/>
+    </div>
+  );
+};
 
 export default Checkbox;

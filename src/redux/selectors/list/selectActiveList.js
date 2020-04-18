@@ -1,7 +1,8 @@
-import { DEFAULT_LIST_ID } from '../../reducers/list';
+import selectActiveListId from './selectActiveListId';
 
 const selectActiveList = state => {
-  const { lists, activeList = DEFAULT_LIST_ID } = state.list;
+  const { lists } = state.list;
+  const activeList = selectActiveListId(state);
 
   if (!lists.hasOwnProperty(activeList)) {
     return null;
