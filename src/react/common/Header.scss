@@ -1,0 +1,45 @@
+@import '../../variables';
+
+.Header {
+  display: flex;
+  padding: 12px;
+  height: $header-height;
+  box-sizing: border-box;
+  background-color: $app-yellow;
+
+  .Header__logoWrap {
+    margin: 0;
+  }
+
+  .Header__logo {
+    width: 64px;
+  }
+
+  .Header__logoText {
+    display: none;
+    margin: 0 0 0 6px;
+    color: $app-black;
+    font-weight: bold;
+    font-size: 26px;
+
+    @media(min-width: 640px) {
+      display: block;
+    }
+  }
+
+  .Header__version {
+    color: $app-black;
+    margin-left: 4px;
+  }
+
+  .Header__left {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Header__right {
+    margin: auto 0 auto auto;
+  }
+}
