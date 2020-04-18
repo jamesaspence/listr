@@ -1,17 +1,35 @@
 .NewListItemPrompt {
   margin: 6px 0;
   border-bottom: 1px solid #afafaf;
+  padding: 32px 20px 32px 92px;
+  display: flex;
 
   &:hover {
     border-color: #7f7f7f;
   }
 
-  .NewListItemPrompt__input {
+  .NewListItemPrompt__input, .NewlistItemPrompt__submit {
     font-size: 16px;
-    width: 100%;
     outline: none;
     border: none;
+  }
+
+  .NewListItemPrompt__input {
     background-color: transparent;
-    padding: 32px 20px 32px 92px;
+    flex: 1;
+  }
+
+  .NewlistItemPrompt__submit {
+    font-size: 16px;
+    margin: 0 12px 0 24px;
+    background-color: #09cb9f;
+    color: #fff;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
   }
 }

@@ -22,6 +22,7 @@ const NewListItemPrompt = ({ onNewItem }) => {
   return (
     <form className="NewListItemPrompt" onSubmit={onSubmit}>
       <input className="NewListItemPrompt__input" type="text" value={value} onChange={onTextChange} placeholder="...New item"/>
+      <button className="NewlistItemPrompt__submit" type="submit">Submit</button>
     </form>
   );
 };
