@@ -1,5 +1,6 @@
-import { TOGGLE_ITEM } from '../../actions/list';
+import { CREATE_ITEM, TOGGLE_ITEM } from '../../actions/list';
 import toggleItemReducer from './toggleItem';
+import createItemReducer from './createItem';
 
 export const DEFAULT_LIST_ID = 12345;
 
@@ -25,6 +26,8 @@ const listReducer = (state = DEFAULT_STATE, action) => {
   switch (type) {
     case TOGGLE_ITEM:
       return toggleItemReducer(state, action);
+    case CREATE_ITEM:
+      return createItemReducer(state, action);
     default:
       return state;
   }

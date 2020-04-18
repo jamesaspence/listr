@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './NewListItemPrompt.scss';
 
 //TODO add editable state here
 
-const NewListItemPrompt = () => {
+const NewListItemPrompt = ({ onNewItem }) => {
+  const [ value, setValue ] = useState('');
+
   const onSubmit = event => {
-    //TODO only submit if clicked?
-    //TODO validate input, add to list
     event.preventDefault();
+    if (value.length < 1) {
+      return;
+    }
+    onNewItem(value);
+    setValue('');
+  };
+
+  const onTextChange = event => {
+    setValue(event.target.value);
   };
 
   return (
     <form className="NewListItemPrompt" onSubmit={onSubmit}>
-      <input className="NewListItemPrompt__input" type="text" placeholder="...New item"/>
+      <input className="NewListItemPrompt__input" type="text" value={value} onChange={onTextChange} placeholder="...New item"/>
     </form>
   );
 };
