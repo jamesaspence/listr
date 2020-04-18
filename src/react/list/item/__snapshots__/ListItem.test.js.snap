@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="ListItem"
+>
+  <Checkbox
+    checked={false}
+    className="ListItem__checkbox"
+    index={1}
+    onChange={[MockFunction]}
+  />
+  <p
+    className="ListItem__text "
+  >
+    oranges
+  </p>
+</div>
+`;

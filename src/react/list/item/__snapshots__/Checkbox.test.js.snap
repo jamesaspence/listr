@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="Checkbox undefined"
+  onClick={[Function]}
+>
+  <input
+    checked={false}
+    className="Checkbox__toggle"
+    id="Checkbox-2"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    className="Checkbox__toggleLabel"
+    htmlFor="Checkbox-2"
+  />
+</div>
+`;

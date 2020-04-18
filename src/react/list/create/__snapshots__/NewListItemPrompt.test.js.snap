@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<form
+  className="NewListItemPrompt"
+  onSubmit={[Function]}
+>
+  <input
+    className="NewListItemPrompt__input"
+    onChange={[Function]}
+    placeholder="...New item"
+    type="text"
+    value=""
+  />
+  <button
+    className="NewlistItemPrompt__submit"
+    type="submit"
+  >
+    Submit
+  </button>
+</form>
+`;
