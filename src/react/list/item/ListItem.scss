@@ -24,4 +24,9 @@
     margin: 12px 0;
   }
 
+  .ListItem__text--checked {
+    text-decoration: line-through;
+    opacity: 0.75;
+  }
+
 }

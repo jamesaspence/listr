@@ -10,7 +10,7 @@ const ListItem = ({
 }) => (
   <div className="ListItem">
     <Checkbox className="ListItem__checkbox" checked={checked} index={index} onChange={onCheck} />
-    <p className="ListItem__text">
+    <p className={`ListItem__text ${checked ? 'ListItem__text--checked' : ''}`}>
       {item}
     </p>
   </div>
