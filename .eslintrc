@@ -1,6 +1,34 @@
 {
   "extends": ["react-app"],
   "rules": {
-    "semi": "error"
+    "semi": "error",
+    "comma-dangle": "error",
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "always"],
+    "object-curly-newline": ["error", {
+      "ObjectExpression": {
+        "multiline": true,
+        "minProperties": 4,
+        "consistent": true
+      },
+      "ObjectPattern": {
+        "multiline": true,
+        "minProperties": 4,
+        "consistent": true
+      },
+      "ExportDeclaration": {
+        "multiline": true,
+        "minProperties": 4,
+        "consistent": true
+      },
+      "ImportDeclaration": "never"
+    }],
+    "object-property-newline": ["error", {
+      "allowAllPropertiesOnSameLine": true
+    }],
+    "array-bracket-newline": ["error", {
+      "multiline": true,
+      "minItems": 3
+    }]
   }
 }
