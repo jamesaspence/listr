@@ -6,8 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import configureStore, { history } from './redux/store';
+import createLocalStorageSubscriber from './redux/subscribers/localStorage';
 
 const store = configureStore();
+createLocalStorageSubscriber(store);
 
 ReactDOM.render(
   <React.StrictMode>
