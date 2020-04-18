@@ -1,0 +1,23 @@
+@import '../../variables';
+
+.Footer {
+  margin: auto 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $footer-height;
+  background-color: $dark-gray;
+
+  .Attribution {
+    color: $app-white;
+  }
+
+  .Attribution__link {
+    text-decoration: none;
+    color: $app-white;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
