@@ -6,6 +6,7 @@ import ContentWrap from '../common/ContentWrap';
 import NoListFallback from './NoListFallback';
 import List from './List';
 import { toggleItem } from '../../redux/actions/list';
+import NewListItemPromptContainer from './create/NewListItemPromptContainer';
 
 const ActiveListContainer = () => {
   const list = useSelector(selectActiveList);
@@ -28,6 +29,7 @@ const ActiveListContainer = () => {
     <ContentWrap>
       <div className="ActiveListContainer">
         <List items={list} onCheck={onToggle} />
+        <NewListItemPromptContainer/>
       </div>
     </ContentWrap>
   );

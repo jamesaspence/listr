@@ -1,11 +1,13 @@
 .ListItem {
   display: flex;
-  border-width: 0 0 1px 0;
-  border-style: solid;
-  border-color: #afafaf;
+  border-bottom: 1px solid #afafaf;
   margin: 6px 0;
   justify-content: flex-start;
   padding: 0 20px;
+
+  &:hover {
+    border-color: #7f7f7f;
+  }
 
   .ListItem__checkbox, .ListItem__text {
     padding: 20px 0;
@@ -19,6 +21,7 @@
   .ListItem__text {
     flex: 1;
     overflow: scroll;
+    margin: 12px 0;
   }
 
 }

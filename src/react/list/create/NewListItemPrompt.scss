@@ -1,0 +1,17 @@
+.NewListItemPrompt {
+  margin: 6px 0;
+  border-bottom: 1px solid #afafaf;
+
+  &:hover {
+    border-color: #7f7f7f;
+  }
+
+  .NewListItemPrompt__input {
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    padding: 32px 20px 32px 92px;
+  }
+}
