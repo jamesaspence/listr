@@ -1,15 +1,24 @@
 .ListItem {
   display: flex;
-  border: 1px dashed red;
-  padding: 20px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #afafaf;
+  margin: 6px 0;
   justify-content: flex-start;
+  padding: 0 20px;
+
+  .ListItem__checkbox, .ListItem__text {
+    padding: 20px 0;
+  }
 
   .ListItem__checkbox {
-    min-width: 60px;
+    min-width: 72px;
+    cursor: pointer;
   }
 
   .ListItem__text {
-    margin: 0 0 0 12px;
+    flex: 1;
+    overflow: scroll;
   }
 
 }
