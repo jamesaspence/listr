@@ -1,8 +1,8 @@
-import { writeListsToStorage } from '../../util/localStorage';
+import { writeDataToStorage } from '../../util/localStorage';
 
 const localStorageSubscriber = store => {
   const { list } = store.getState();
-  writeListsToStorage(list);
+  writeDataToStorage(list);
 };
 
 const createLocalStorageSubscriber = store => {
