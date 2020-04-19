@@ -4,9 +4,9 @@ import selectActiveList from '../../redux/selectors/list/selectActiveList';
 import selectActiveListId from '../../redux/selectors/list/selectActiveListId';
 import ContentWrap from '../common/ContentWrap';
 import NoListFallback from './NoListFallback';
-import List from './List';
 import { toggleItem, deleteItem } from '../../redux/actions/list';
 import NewListItemPromptContainer from './create/NewListItemPromptContainer';
+import ListItem from './item/ListItem';
 
 const ActiveListContainer = () => {
   const list = useSelector(selectActiveList);
@@ -32,7 +32,9 @@ const ActiveListContainer = () => {
   return (
     <ContentWrap>
       <div className="ActiveListContainer">
-        <List items={list} onCheck={onToggle} onDelete={onDelete} />
+        <div className="ActiveListContainer__list">
+          { list.map((item, i) => <ListItem key={i} item={item.text} checked={item.checked} onDelete={onDelete} index={i} itemId={item.id} onCheck={onToggle} />) }
+        </div>
         <NewListItemPromptContainer/>
       </div>
     </ContentWrap>
