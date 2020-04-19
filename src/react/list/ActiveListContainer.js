@@ -26,7 +26,7 @@ const ActiveListContainer = () => {
   };
 
   const onDelete = itemId => {
-    console.log('itemId', itemId);
+    dispatch(deleteItem(activeList, itemId));
   };
 
   return (
