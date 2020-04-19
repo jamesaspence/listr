@@ -12,7 +12,7 @@ const deleteItemReducer = (state, action) => {
     ...state,
     lists: {
       ...lists,
-      [listId]: lists[listId].filter(indvItem => indvItem.id === itemId)
+      [listId]: lists[listId].filter(indvItem => indvItem.id !== itemId)
     }
   };
 };
