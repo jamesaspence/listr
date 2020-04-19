@@ -9,7 +9,7 @@ const ActiveList = ({ items, onDelete, onToggle }) => (
     {items.map((item, i) =>
       <AppCSSTransition key={item.id} prefix="ListItem" timeout={200}>
         <ListItem
-          key={i}
+          key={item.id}
           item={item.text}
           checked={item.checked}
           onDelete={onDelete}
