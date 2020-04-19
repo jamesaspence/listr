@@ -5,11 +5,12 @@ const Checkbox = ({
   className,
   checked,
   index,
+  itemId,
   onChange
 }) => {
   const onToggle = event => {
     event.preventDefault();
-    onChange(index, event);
+    onChange(itemId, event);
   };
 
   return (

@@ -1,10 +1,10 @@
 export const TOGGLE_ITEM = 'TOGGLE_ITEM';
 export const CREATE_ITEM = 'CREATE_ITEM';
 
-export const toggleItem = (listId, index) => ({
+export const toggleItem = (listId, itemId) => ({
   type: TOGGLE_ITEM,
   listId,
-  index
+  itemId
 });
 
 export const createItem = (listId, value) => ({

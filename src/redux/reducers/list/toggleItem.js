@@ -1,5 +1,5 @@
 const toggleItemReducer = (state, action) => {
-  const { listId, index } = action;
+  const { listId, itemId } = action;
   const { lists } = state;
 
   if (!lists.hasOwnProperty(listId)) {
@@ -7,10 +7,13 @@ const toggleItemReducer = (state, action) => {
   }
 
   const list = [ ...lists[listId] ];
-  if (list.length <= index) {
+  const item = list.find(indvItem => indvItem.id === itemId);
+
+  if (item == null) {
     return state;
   }
 
+  const index = list.indexOf(item);
   list[index].checked = !list[index].checked;
 
   return {
