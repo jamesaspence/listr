@@ -16,5 +16,8 @@ exports[`matches snapshot 1`] = `
   >
     oranges
   </p>
+  <DeleteButton
+    itemId="123"
+  />
 </div>
 `;

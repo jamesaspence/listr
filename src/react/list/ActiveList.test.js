@@ -6,11 +6,13 @@ import ListItem from './item/ListItem';
 const testItems = [
   {
     text: 'apples',
-    checked: false
+    checked: false,
+    id: '123123'
   },
   {
     text: 'oranges',
-    checked: true
+    checked: true,
+    id: '321321'
   }
 ];
 
