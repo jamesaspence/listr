@@ -12,9 +12,7 @@ const toggleItemReducer = (state, action) => {
   const item = getItemFromList(list, itemId);
 
   const index = list.indexOf(item);
-  console.log('old', list[index].checked);
   list[index].checked = !list[index].checked;
-  console.log('new', list[index].checked);
 
   return {
     ...state,
