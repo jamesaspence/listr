@@ -1,7 +1,7 @@
 import { CREATE_ITEM, TOGGLE_ITEM } from '../../actions/list';
 import toggleItemReducer from './toggleItem';
 import createItemReducer from './createItem';
-import { getDataFromStorage, clearData } from '../../../util/localStorage';
+import { getDataFromStorage, clearData, hasStoredData } from '../../../util/localStorage';
 import { nanoid } from 'nanoid';
 
 const generateInitialState = () => {
@@ -21,6 +21,10 @@ export const DEFAULT_STATE = {
 };
 
 export const getPreloadedState = () => {
+  if (!hasStoredData()) {
+    return generateInitialState();
+  }
+
   let data;
   try {
     data = getDataFromStorage();

@@ -2,8 +2,20 @@ export const LISTS_STORAGE_KEY = 'lists';
 
 export const getLocalStorage = () => window.localStorage;
 
+export const getRawData = () => {
+  return getLocalStorage().getItem(LISTS_STORAGE_KEY);
+};
+
 export const getDataFromStorage = () => {
-  return window.JSON.parse(getLocalStorage().getItem(LISTS_STORAGE_KEY));
+  if (!hasStoredData()) {
+    return null;
+  }
+
+  return window.JSON.parse(getRawData());
+};
+
+export const hasStoredData = () => {
+  return getRawData() != null;
 };
 
 export const writeDataToStorage = lists => {
