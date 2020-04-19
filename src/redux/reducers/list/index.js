@@ -1,8 +1,9 @@
-import { CREATE_ITEM, TOGGLE_ITEM } from '../../actions/list';
+import { CREATE_ITEM, DELETE_ITEM, TOGGLE_ITEM } from '../../actions/list';
 import toggleItemReducer from './toggleItem';
 import createItemReducer from './createItem';
 import { getDataFromStorage, clearData, hasStoredData } from '../../../util/localStorage';
 import { generateNewId } from '../../../util/id';
+import deleteItemReducer from './deleteItem';
 
 const generateInitialState = () => {
   const listId = generateNewId();
@@ -54,6 +55,8 @@ const listReducer = (state = DEFAULT_STATE, action) => {
       return toggleItemReducer(state, action);
     case CREATE_ITEM:
       return createItemReducer(state, action);
+    case DELETE_ITEM:
+      return deleteItemReducer(state, action);
     default:
       return state;
   }
