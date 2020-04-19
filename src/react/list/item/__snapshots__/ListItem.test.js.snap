@@ -8,6 +8,7 @@ exports[`matches snapshot 1`] = `
     checked={false}
     className="ListItem__checkbox"
     index={1}
+    itemId="123"
     onChange={[MockFunction]}
   />
   <p
