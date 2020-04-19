@@ -7,9 +7,13 @@
 
   &:hover {
     border-color: #7f7f7f;
+
+    .DeleteButton {
+      opacity: 1;
+    }
   }
 
-  .ListItem__checkbox, .ListItem__text {
+  .ListItem__text {
     padding: 20px 0;
   }
 
@@ -28,5 +32,4 @@
     text-decoration: line-through;
     opacity: 0.75;
   }
-
 }

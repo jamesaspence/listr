@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<TransitionGroup
+  childFactory={[Function]}
+  className="ActiveList"
+  component="div"
+>
+  <AppCSSTransition
+    key="123123"
+    prefix="ListItem"
+    timeout={200}
+  >
+    <ListItem
+      checked={false}
+      index={0}
+      item="apples"
+      itemId="123123"
+      key="123123"
+      onCheck={[MockFunction]}
+      onDelete={[MockFunction]}
+    />
+  </AppCSSTransition>
+  <AppCSSTransition
+    key="321321"
+    prefix="ListItem"
+    timeout={200}
+  >
+    <ListItem
+      checked={true}
+      index={1}
+      item="oranges"
+      itemId="321321"
+      key="321321"
+      onCheck={[MockFunction]}
+      onDelete={[MockFunction]}
+    />
+  </AppCSSTransition>
+</TransitionGroup>
+`;

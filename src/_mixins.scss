@@ -1,0 +1,9 @@
+@import 'variables';
+
+@mixin transitionState($states...) {
+  @each $state in $states {
+    &--#{map_get($transitionStates, $state)} {
+      @content;
+    }
+  }
+}

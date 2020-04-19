@@ -1,35 +1,39 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import List from './List';
+import ActiveList from './ActiveList';
 import ListItem from './item/ListItem';
 
 const testItems = [
   {
     text: 'apples',
-    checked: false
+    checked: false,
+    id: '123123'
   },
   {
     text: 'oranges',
-    checked: true
+    checked: true,
+    id: '321321'
   }
 ];
 
 const TEST_PROPS = {
   items: testItems,
-  onCheck: jest.fn()
+  onToggle: jest.fn(),
+  onDelete: jest.fn()
 };
 
 it('matches snapshot', () => {
-  expect(shallow(<List {...TEST_PROPS} />)).toMatchSnapshot();
+  expect(shallow(<ActiveList {...TEST_PROPS} />)).toMatchSnapshot();
 });
 
 it('renders items correctly', () => {
-  const container = shallow(<List {...TEST_PROPS} />);
+  const container = shallow(<ActiveList {...TEST_PROPS} />);
   container.find(ListItem).forEach((listItem, i) => {
     expect(i).toBeLessThan(testItems.length);
     const { checked, text } = testItems[i];
     expect(listItem.prop('checked')).toEqual(checked);
     expect(listItem.prop('item')).toEqual(text);
-    expect(listItem.prop('onCheck')).toEqual(TEST_PROPS.onCheck);
+    expect(listItem.prop('onCheck')).toEqual(TEST_PROPS.onToggle);
+    expect(listItem.prop('onDelete')).toEqual(TEST_PROPS.onDelete);
   });
 });

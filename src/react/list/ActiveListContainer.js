@@ -4,8 +4,8 @@ import selectActiveList from '../../redux/selectors/list/selectActiveList';
 import selectActiveListId from '../../redux/selectors/list/selectActiveListId';
 import ContentWrap from '../common/ContentWrap';
 import NoListFallback from './NoListFallback';
-import List from './List';
-import { toggleItem } from '../../redux/actions/list';
+import { toggleItem, deleteItem } from '../../redux/actions/list';
+import ActiveList from './ActiveList';
 import NewListItemPromptContainer from './create/NewListItemPromptContainer';
 
 const ActiveListContainer = () => {
@@ -21,16 +21,18 @@ const ActiveListContainer = () => {
     );
   }
 
-  const onToggle = index => {
-    dispatch(toggleItem(activeList, index));
+  const onToggle = itemId => {
+    dispatch(toggleItem(activeList, itemId));
+  };
+
+  const onDelete = itemId => {
+    dispatch(deleteItem(activeList, itemId));
   };
 
   return (
     <ContentWrap>
-      <div className="ActiveListContainer">
-        <List items={list} onCheck={onToggle} />
-        <NewListItemPromptContainer/>
-      </div>
+      <ActiveList items={list} onDelete={onDelete} onToggle={onToggle} />
+      <NewListItemPromptContainer/>
     </ContentWrap>
   );
 };

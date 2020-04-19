@@ -1,24 +1,27 @@
 import listReducer, { DEFAULT_STATE, getPreloadedState } from './';
 import createItemReducer from './createItem';
 import toggleItemReducer from './toggleItem';
-import { createItem, toggleItem } from '../../actions/list';
+import deleteItemReducer from './deleteItem';
+import { createItem, deleteItem, toggleItem } from '../../actions/list';
 import { clearData, getDataFromStorage, hasStoredData } from '../../../util/localStorage';
 import { generateNewId } from '../../../util/id';
 
 jest.mock('./createItem');
 jest.mock('./toggleItem');
+jest.mock('./deleteItem');
 jest.mock('../../../util/localStorage');
 jest.mock('../../../util/id');
 
-const mocks = [
+const mockedReducers = [
   createItemReducer,
-  toggleItemReducer
+  toggleItemReducer,
+  deleteItemReducer
 ];
 
 const expectedGeneratedId = '123123';
 
 beforeEach(() => {
-  mocks.forEach(indvMock => {
+  mockedReducers.forEach(indvMock => {
     indvMock.mockReset();
   });
   clearData.mockReset();
@@ -28,9 +31,9 @@ beforeEach(() => {
   generateNewId.mockReturnValueOnce(expectedGeneratedId);
 });
 
-const expectToBeCalledOnce = (mock, action) => {
-  mocks.forEach(indvMock => {
-    if (mock === indvMock) {
+const expectOnlyThisReducerCalled = (mockedReducer, action) => {
+  mockedReducers.forEach(indvMock => {
+    if (mockedReducer === indvMock) {
       expect(indvMock.mock.calls.length).toEqual(1);
       expect(indvMock.mock.calls[0][1]).toEqual(action);
     } else {
@@ -103,12 +106,18 @@ describe('correct reducer dispatch', () => {
   it('handles create item correctly', () => {
     const action = createItem('1234', 'apples');
     listReducer(DEFAULT_STATE, action);
-    expectToBeCalledOnce(createItemReducer, action);
+    expectOnlyThisReducerCalled(createItemReducer, action);
   });
 
   it('handles toggle item correctly', () => {
     const action = toggleItem('1234', 0);
     listReducer(DEFAULT_STATE, action);
-    expectToBeCalledOnce(toggleItemReducer, action);
+    expectOnlyThisReducerCalled(toggleItemReducer, action);
+  });
+
+  it('handles delete item correctly', () => {
+    const action = deleteItem('1234', '123123');
+    listReducer(DEFAULT_STATE, action);
+    expectOnlyThisReducerCalled(deleteItemReducer, action);
   });
 });
