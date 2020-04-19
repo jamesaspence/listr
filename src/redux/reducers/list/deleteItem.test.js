@@ -1,4 +1,6 @@
 import { DEFAULT_STATE } from './index';
+import deleteItemReducer from './deleteItem';
+import { deleteItem } from '../../actions/list';
 
 const expectedListId = '123';
 const expectedItemId = '123123';
@@ -7,7 +9,7 @@ const TEST_STATE = {
   lists: {
     [expectedListId]: [
       {
-        id: '4321',
+        id: '1111',
         text: 'apples',
         checked: false
       },
@@ -17,7 +19,7 @@ const TEST_STATE = {
         checked: false
       },
       {
-        id: '9999',
+        id: '3333',
         text: 'almonds',
         checked: false
       }
@@ -25,6 +27,30 @@ const TEST_STATE = {
   }
 };
 
-it.todo('short circuits if list id is invalid');
-it.todo('short circuits if item id is invalid');
-it.todo('correctly deletes item');
+it('short circuits if list id is invalid', () => {
+  expect(deleteItemReducer(
+    TEST_STATE,
+    deleteItem('9999', expectedItemId)
+  )).toEqual(TEST_STATE);
+});
+
+it('short circuits if item id is invalid', () => {
+  expect(deleteItemReducer(
+    TEST_STATE,
+    deleteItem(expectedListId, '9999')
+  )).toEqual(TEST_STATE);
+});
+
+it('correctly deletes item', () => {
+  const expectedState = {
+    ...TEST_STATE,
+    lists: {
+      ...TEST_STATE.lists,
+      [expectedListId]: TEST_STATE.lists[expectedListId].filter(item => item.id !== expectedItemId)
+    }
+  };
+  expect(deleteItemReducer(
+    TEST_STATE,
+    deleteItem(expectedListId, expectedItemId)
+  )).toEqual(expectedState);
+});
