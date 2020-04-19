@@ -1,0 +1,12 @@
+@import '../../variables';
+@import '../../mixins';
+
+.ActiveList {
+  .ListItem {
+    transition: opacity 200ms ease;
+
+    @include transitionState($exiting) {
+      opacity: 0;
+    }
+  }
+}

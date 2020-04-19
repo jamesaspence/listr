@@ -1,11 +1,25 @@
 import React from 'react';
 import './ActiveList.scss';
 import ListItem from './item/ListItem';
+import TransitionGroup from 'react-transition-group/cjs/TransitionGroup';
+import AppCSSTransition from '../common/AppCSSTransition';
 
 const ActiveList = ({ items, onDelete, onToggle }) => (
-  <div className="List">
-    { items.map((item, i) => <ListItem key={i} item={item.text} checked={item.checked} onDelete={onDelete} index={i} itemId={item.id} onCheck={onToggle} />) }
-  </div>
+  <TransitionGroup className="ActiveList">
+    {items.map((item, i) =>
+      <AppCSSTransition key={item.id} prefix="ListItem" timeout={200}>
+        <ListItem
+          key={i}
+          item={item.text}
+          checked={item.checked}
+          onDelete={onDelete}
+          index={i}
+          itemId={item.id}
+          onCheck={onToggle}
+        />
+      </AppCSSTransition>
+    )}
+  </TransitionGroup>
 );
 
 export default ActiveList;
