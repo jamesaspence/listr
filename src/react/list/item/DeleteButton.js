@@ -7,9 +7,11 @@ const DeleteButton = ({ onDelete, itemId }) => {
   };
 
   return (
-    <button className="DeleteButton" type="button" onClick={onDeleteClick}>
-      Delete
-    </button>
+    <div className="DeleteButton">
+      <button className="DeleteButton__inner" type="button" onClick={onDeleteClick}>
+        Delete
+      </button>
+    </div>
   );
 };
 
