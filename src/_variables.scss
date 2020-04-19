@@ -6,3 +6,25 @@ $dark-gray: #3a3a3a;
 $app-white: #fff;
 $app-black: #000;
 $app-yellow: #ffdd57;
+
+$willAppear: 'willAppear';
+$appearing: 'appearing';
+$appeared: 'appeared';
+$willEnter: 'willEnter';
+$entering: 'entering';
+$entered: 'entered';
+$willExit: 'willExit';
+$exiting: 'exiting';
+$exited: 'exited';
+
+$transitionStates: (
+  $willAppear: 'will-appear',
+  $appearing: 'appearing',
+  $appeared: 'appeared',
+  $willEnter: 'will-enter',
+  $entering: 'entering',
+  $entered: 'entered',
+  $willExit: 'will-exit',
+  $exiting: 'exiting',
+  $exited: 'exited'
+);
