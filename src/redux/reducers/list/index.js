@@ -2,10 +2,10 @@ import { CREATE_ITEM, TOGGLE_ITEM } from '../../actions/list';
 import toggleItemReducer from './toggleItem';
 import createItemReducer from './createItem';
 import { getDataFromStorage, clearData, hasStoredData } from '../../../util/localStorage';
-import { nanoid } from 'nanoid';
+import { generateNewId } from '../../../util/id';
 
 const generateInitialState = () => {
-  const listId = nanoid();
+  const listId = generateNewId();
   return {
     ...DEFAULT_STATE,
     lists: {
