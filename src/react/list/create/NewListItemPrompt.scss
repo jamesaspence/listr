@@ -1,8 +1,12 @@
+@import '../../../variables';
+@import '../../../mixins';
+
 .NewListItemPrompt {
-  margin: 6px 0;
+  padding: 12px;
   border-bottom: 1px solid #afafaf;
-  padding: 32px 20px 32px 92px;
   display: flex;
+  flex-direction: column;
+  text-align: center;
 
   &:hover {
     border-color: #7f7f7f;
@@ -17,6 +21,8 @@
   .NewListItemPrompt__input {
     background-color: transparent;
     flex: 1;
+    padding: 12px;
+    text-align: center;
   }
 
   .NewlistItemPrompt__submit {
@@ -30,6 +36,17 @@
 
     &:hover {
       opacity: 0.9;
+    }
+  }
+
+  @include minWidth($size-mobile) {
+    padding: 32px 20px 32px 92px;
+    flex-direction: row;
+    margin: 6px 0;
+    text-align: start;
+
+    .NewListItemPrompt__input {
+      text-align: initial;
     }
   }
 }
