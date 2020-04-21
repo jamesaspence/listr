@@ -3,10 +3,18 @@
 
 .ActiveList {
   .ListItem {
-    transition: opacity 200ms ease;
+
+    @include transitionState($willEnter, $exiting) {
+      opacity: 0;
+    }
 
     @include transitionState($exiting) {
-      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+
+    @include transitionState($entered) {
+      transition: opacity 200ms ease;
+      opacity: 1;
     }
   }
 }
