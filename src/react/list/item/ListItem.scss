@@ -6,10 +6,11 @@
   border-bottom: 1px solid #afafaf;
   margin: 6px 0;
   justify-content: flex-start;
-  padding: 0 20px;
+  padding: 6px 12px;
 
   @include minWidth($size-mobile) {
     .DeleteButton {
+      transition: opacity 200ms ease;
       opacity: 0;
     }
 
@@ -20,10 +21,6 @@
         opacity: 1;
       }
     }
-  }
-
-  .ListItem__text {
-    padding: 20px 0;
   }
 
   .ListItem__checkbox {

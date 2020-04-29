@@ -1,5 +1,13 @@
+@import '../../variables';
+@import '../../mixins';
+
 .ContentWrap {
   box-sizing: border-box;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
+
+  @include minWidth($size-mobile) {
+    width: 85%;
+    max-width: 1400px;
+  }
 }
