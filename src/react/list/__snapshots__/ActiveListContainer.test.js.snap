@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<ContentWrap>
+  <ActiveList
+    items={
+      Array [
+        Object {
+          "checked": false,
+          "id": "12345",
+          "text": "Test Item 12345",
+        },
+        Object {
+          "checked": false,
+          "id": "54321",
+          "text": "Test Item 54321",
+        },
+      ]
+    }
+    onDelete={[Function]}
+    onToggle={[Function]}
+  />
+  <NewListItemPromptContainer />
+</ContentWrap>
+`;

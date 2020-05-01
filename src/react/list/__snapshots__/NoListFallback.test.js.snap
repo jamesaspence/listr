@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="NoListFallback"
+>
+  <h3>
+    This is unexpected.
+  </h3>
+  <p>
+    We're sorry, we're not sure how you got here! No list could be loaded.
+  </p>
+</div>
+`;
