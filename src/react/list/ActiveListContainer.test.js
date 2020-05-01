@@ -38,6 +38,7 @@ beforeEach(() => {
   useDispatch.mockReset();
   toggleItem.mockReset();
   deleteItem.mockReset();
+  mockDispatch.mockReset();
 
   useSelector.mockImplementation(selector => selector(TEST_STATE));
   useDispatch.mockReturnValue(mockDispatch);
