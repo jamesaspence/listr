@@ -4,6 +4,9 @@ exports[`matches snapshot 1`] = `
 <div
   className="ListItem"
 >
+  <DraggableHandle
+    dragHandleProps={Object {}}
+  />
   <Checkbox
     checked={false}
     className="ListItem__checkbox"
@@ -13,11 +16,10 @@ exports[`matches snapshot 1`] = `
   />
   <p
     className="ListItem__text "
-  >
-    oranges
-  </p>
+  />
   <DeleteButton
     itemId="123"
+    onDelete={[MockFunction]}
   />
 </div>
 `;

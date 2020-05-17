@@ -26,6 +26,7 @@
     position: relative;
     width: 18px;
     height: 18px;
+    cursor: pointer;
 
     &::before, &::after {
       position: absolute;

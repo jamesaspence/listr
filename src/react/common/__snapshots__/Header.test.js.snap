@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<header
+  className="Header"
+>
+  <div
+    className="Header__left"
+  >
+    <figure
+      className="Header__logoWrap"
+    >
+      <img
+        alt="Listr Logo"
+        className="Header__logo"
+        src="logo.svg"
+      />
+    </figure>
+    <h1
+      className="Header__logoText"
+    >
+      Listr
+    </h1>
+    <small
+      className="Header__version"
+    >
+      v
+      1.2.3
+    </small>
+  </div>
+</header>
+`;

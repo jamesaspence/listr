@@ -1,18 +1,16 @@
 import React from 'react';
-import './App.scss';
-import Header from './common/Header';
-import Footer from './common/Footer';
 import { Switch, Route } from 'react-router-dom';
-import ActiveListContainer from './list/ActiveListContainer';
+import Layout from './common/Layout';
+import ListView from './views/ListView';
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Switch>
-        <Route path="/" component={ActiveListContainer} />
-      </Switch>
-      <Footer/>
+      <Layout>
+        <Switch>
+          <Route path="/" component={ListView} />
+        </Switch>
+      </Layout>
     </div>
   );
 }

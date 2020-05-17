@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<footer
+  className="Footer"
+>
+  <small
+    className="Attribution"
+  >
+    Logo made by 
+    <a
+      className="Attribution__link"
+      href="https://www.flaticon.com/authors/vectors-market"
+      title="Vectors Market"
+    >
+      Vectors Market
+    </a>
+     from 
+    <a
+      className="Attribution__link"
+      href="https://www.flaticon.com/"
+      title="Flaticon"
+    >
+       www.flaticon.com
+    </a>
+  </small>
+</footer>
+`;

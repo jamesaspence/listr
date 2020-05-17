@@ -4,13 +4,13 @@ exports[`matches snapshot 1`] = `
 <div
   className="App"
 >
-  <Header />
-  <Switch>
-    <Route
-      component={[Function]}
-      path="/"
-    />
-  </Switch>
-  <Footer />
+  <Layout>
+    <Switch>
+      <Route
+        component={[Function]}
+        path="/"
+      />
+    </Switch>
+  </Layout>
 </div>
 `;
