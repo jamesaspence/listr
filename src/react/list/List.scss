@@ -1,7 +1,7 @@
 @import '../../variables';
 @import '../../mixins';
 
-.ActiveList {
+.List {
   .ListItem {
 
     @include transitionState($willEnter, $exiting) {

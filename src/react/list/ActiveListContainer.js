@@ -3,9 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import selectActiveListData from '../../redux/selectors/list/selectActiveListData';
 import NoListFallback from './NoListFallback';
 import { toggleItem, deleteItem } from '../../redux/actions/list';
-import List from './List';
-import AppCSSTransition from '../common/AppCSSTransition';
-import ListItem from './item/ListItem';
+import DragDropList from './DragDropList';
 
 const ActiveListContainer = () => {
   const { items, listId } = useSelector(selectActiveListData);
@@ -17,7 +15,7 @@ const ActiveListContainer = () => {
     );
   }
 
-  const onToggle = itemId => {
+  const onCheck = itemId => {
     dispatch(toggleItem(listId, itemId));
   };
 
@@ -26,21 +24,7 @@ const ActiveListContainer = () => {
   };
 
   return (
-    <List>
-      {items.map((item, i) =>
-        <AppCSSTransition key={item.id} prefix="ListItem" timeout={200}>
-          <ListItem
-            key={item.id}
-            item={item.text}
-            checked={item.checked}
-            onDelete={onDelete}
-            index={i}
-            itemId={item.id}
-            onCheck={onToggle}
-          />
-        </AppCSSTransition>
-      )}
-    </List>
+    <DragDropList items={items} listId={listId} onDelete={onDelete} onCheck={onCheck} />
   );
 };
 
