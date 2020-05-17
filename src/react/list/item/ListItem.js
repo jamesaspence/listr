@@ -2,7 +2,6 @@ import React from 'react';
 import './ListItem.scss';
 import Checkbox from './Checkbox';
 import DeleteButton from './DeleteButton';
-import { Draggable } from 'react-beautiful-dnd';
 import DraggableHandle from './DraggableHandle';
 
 const ListItem = ({
@@ -11,25 +10,24 @@ const ListItem = ({
   index,
   checked = false,
   onCheck,
-  onDelete
+  onDelete,
+  draggableProps,
+  dragHandleProps,
+  innerRef
 }) => {
   return (
-    <Draggable draggableId={itemId} index={index}>
-      {provided => (
-        <div
-          {...provided.draggableProps}
-          ref={provided.innerRef}
-          className="ListItem"
-        >
-          <DraggableHandle provided={provided} />
-          <Checkbox className="ListItem__checkbox" checked={checked} index={index} itemId={itemId} onChange={onCheck} />
-          <p className={`ListItem__text ${checked ? 'ListItem__text--checked' : ''}`}>
-            {item}
-          </p>
-          <DeleteButton itemId={itemId} onDelete={onDelete} />
-        </div>
-      )}
-    </Draggable>
+    <div
+      {...draggableProps}
+      ref={innerRef}
+      className="ListItem"
+    >
+      <DraggableHandle dragHandleProps={dragHandleProps} />
+      <Checkbox className="ListItem__checkbox" checked={checked} index={index} itemId={itemId} onChange={onCheck} />
+      <p className={`ListItem__text ${checked ? 'ListItem__text--checked' : ''}`}>
+        {item}
+      </p>
+      <DeleteButton itemId={itemId} onDelete={onDelete} />
+    </div>
   );
 };
 

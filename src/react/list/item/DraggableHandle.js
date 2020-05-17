@@ -1,10 +1,10 @@
 import React from 'react';
 import './DraggableHandle.scss';
 
-const DraggableHandle = ({ provided }) => {
+const DraggableHandle = ({ dragHandleProps }) => {
   return (
     <div
-      {...provided.dragHandleProps}
+      {...dragHandleProps}
       className="DraggableHandle"
     >
       :
