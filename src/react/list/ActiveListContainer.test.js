@@ -4,7 +4,6 @@ import DragDropList from './DragDropList';
 import ActiveListContainer from './ActiveListContainer';
 import { useSelector, useDispatch } from 'react-redux';
 import NoListFallback from './NoListFallback';
-import List from './List';
 import { toggleItem, deleteItem } from '../../redux/actions/list';
 
 jest.mock('react-redux', () => {
@@ -60,7 +59,7 @@ it('renders fallback if no data available', () => {
   }));
   const wrapper = shallow(<ActiveListContainer />);
   expect(wrapper.exists(NoListFallback)).toBeTruthy();
-  expect(wrapper.exists(List)).toBeFalsy();
+  expect(wrapper.exists(DragDropList)).toBeFalsy();
 });
 
 it('passes correct props to action dispatchers', () => {
