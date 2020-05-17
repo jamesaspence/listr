@@ -1,55 +1,46 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import selectActiveList from '../../redux/selectors/list/selectActiveList';
-import selectActiveListId from '../../redux/selectors/list/selectActiveListId';
-import ContentWrap from '../common/ContentWrap';
+import selectActiveListData from '../../redux/selectors/list/selectActiveListData';
 import NoListFallback from './NoListFallback';
 import { toggleItem, deleteItem } from '../../redux/actions/list';
 import List from './List';
-import NewListItemPromptContainer from './create/NewListItemPromptContainer';
 import AppCSSTransition from '../common/AppCSSTransition';
 import ListItem from './item/ListItem';
 
 const ActiveListContainer = () => {
-  const list = useSelector(selectActiveList);
-  const activeList = useSelector(selectActiveListId);
+  const { items, listId } = useSelector(selectActiveListData);
   const dispatch = useDispatch();
 
-  if (list == null) {
+  if (items == null) {
     return (
-      <ContentWrap>
-        <NoListFallback />
-      </ContentWrap>
+      <NoListFallback />
     );
   }
 
   const onToggle = itemId => {
-    dispatch(toggleItem(activeList, itemId));
+    dispatch(toggleItem(listId, itemId));
   };
 
   const onDelete = itemId => {
-    dispatch(deleteItem(activeList, itemId));
+    dispatch(deleteItem(listId, itemId));
   };
 
   return (
-    <ContentWrap>
-      <List>
-        {list.map((item, i) =>
-          <AppCSSTransition key={item.id} prefix="ListItem" timeout={200}>
-            <ListItem
-              key={item.id}
-              item={item.text}
-              checked={item.checked}
-              onDelete={onDelete}
-              index={i}
-              itemId={item.id}
-              onCheck={onToggle}
-            />
-          </AppCSSTransition>
-        )}
-      </List>
-      <NewListItemPromptContainer/>
-    </ContentWrap>
+    <List>
+      {items.map((item, i) =>
+        <AppCSSTransition key={item.id} prefix="ListItem" timeout={200}>
+          <ListItem
+            key={item.id}
+            item={item.text}
+            checked={item.checked}
+            onDelete={onDelete}
+            index={i}
+            itemId={item.id}
+            onCheck={onToggle}
+          />
+        </AppCSSTransition>
+      )}
+    </List>
   );
 };
 

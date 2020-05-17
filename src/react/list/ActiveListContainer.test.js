@@ -23,13 +23,10 @@ const listItems = [
     checked: false
   }
 ];
-const TEST_STATE = {
-  list: {
-    lists: {
-      [activeList]: listItems
-    },
-    activeList
-  }
+
+const SELECTOR_PROPS = {
+  items: listItems,
+  listId: activeList
 };
 
 const mockDispatch = jest.fn();
@@ -41,7 +38,7 @@ beforeEach(() => {
   deleteItem.mockReset();
   mockDispatch.mockReset();
 
-  useSelector.mockImplementation(selector => selector(TEST_STATE));
+  useSelector.mockImplementation(selector => SELECTOR_PROPS);
   useDispatch.mockReturnValue(mockDispatch);
 });
 
@@ -50,7 +47,10 @@ it('matches snapshot', () => {
 });
 
 it('renders fallback if no data available', () => {
-  useSelector.mockImplementation(() => null);
+  useSelector.mockImplementation(() => ({
+    items: null,
+    listId: null
+  }));
   const wrapper = shallow(<ActiveListContainer />);
   expect(wrapper.exists(NoListFallback)).toBeTruthy();
   expect(wrapper.exists(List)).toBeFalsy();
