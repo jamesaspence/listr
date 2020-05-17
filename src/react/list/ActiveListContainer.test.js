@@ -1,14 +1,34 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import DragDropList from './DragDropList';
 import ActiveListContainer from './ActiveListContainer';
 import { useSelector, useDispatch } from 'react-redux';
 import NoListFallback from './NoListFallback';
 import List from './List';
 import { toggleItem, deleteItem } from '../../redux/actions/list';
-import ListItem from './item/ListItem';
 
-jest.mock('react-redux');
+jest.mock('react-redux', () => {
+  return {
+    __esModule: true,
+    useSelector: jest.fn(),
+    useDispatch: jest.fn(),
+    connect: jest.fn(() => component => component)
+  };
+});
 jest.mock('../../redux/actions/list');
+// We need to mock this out because otherwise reactRedux.connect fails!
+jest.mock('./DragDropList', () => {
+  return {
+    __esModule: true,
+    default: jest.fn(({ children }) => {
+      return (
+        <div className="DragDropList">
+          {children}
+        </div>
+      );
+    })
+  };
+});
 
 const activeList = 'list12345';
 const listItems = [
@@ -37,9 +57,11 @@ beforeEach(() => {
   toggleItem.mockReset();
   deleteItem.mockReset();
   mockDispatch.mockReset();
+  DragDropList.mockReset();
 
   useSelector.mockImplementation(selector => SELECTOR_PROPS);
   useDispatch.mockReturnValue(mockDispatch);
+  DragDropList.mockImplementation();
 });
 
 it('matches snapshot', () => {
@@ -56,23 +78,10 @@ it('renders fallback if no data available', () => {
   expect(wrapper.exists(List)).toBeFalsy();
 });
 
-it('passes list to child list', () => {
-  const wrapper = shallow(<ActiveListContainer />);
-  expect(wrapper.exists(NoListFallback)).toBeFalsy();
-  expect(wrapper.exists(List)).toBeTruthy();
-
-  wrapper.find(ListItem).forEach((listItem, i) => {
-    expect(i).toBeLessThan(listItems.length);
-    const { checked, text } = listItems[i];
-    expect(listItem.prop('checked')).toEqual(checked);
-    expect(listItem.prop('item')).toEqual(text);
-  });
-});
-
 it('passes correct props to action dispatchers', () => {
   const wrapper = shallow(<ActiveListContainer />);
 
-  const firstListItem = wrapper.find(ListItem).first();
+  const firstListItem = wrapper.find(DragDropList).first();
   const onDelete = firstListItem.prop('onDelete');
   const onCheck = firstListItem.prop('onCheck');
 
