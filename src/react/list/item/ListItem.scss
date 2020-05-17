@@ -8,6 +8,12 @@
   justify-content: flex-start;
   padding: 6px 12px;
 
+  .ListItem__draggable {
+    margin: 15px 0;
+    padding: 0 12px;
+    cursor: grab;
+  }
+
   @include minWidth($size-mobile) {
     .DeleteButton {
       transition: opacity 200ms ease;

@@ -12,6 +12,9 @@ const ListItem = ({
   onDelete
 }) => (
   <div className="ListItem">
+    <div className="ListItem__draggable">
+      :
+    </div>
     <Checkbox className="ListItem__checkbox" checked={checked} index={index} itemId={itemId} onChange={onCheck} />
     <p className={`ListItem__text ${checked ? 'ListItem__text--checked' : ''}`}>
       {item}
