@@ -1,8 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import List from './List';
 import AppCSSTransition from '../common/AppCSSTransition';
 import ListItem from './item/ListItem';
+import { reorderItem } from '../../redux/actions/list';
 
 const DragDropList = ({
   items,
@@ -10,9 +12,20 @@ const DragDropList = ({
   onDelete,
   onCheck
 }) => {
+  const dispatch = useDispatch();
 
   const onDragEnd = result => {
-    console.log('result', result);
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    if (destination.index === source.index) {
+      return;
+    }
+
+    dispatch(reorderItem(listId, draggableId, source, destination));
     // TODO update order of drag/drop items
     // TODO has to happen synchronously??? That seems... bad
     // TODO I wonder how this will work synchronously... w/ redux underneath as well
