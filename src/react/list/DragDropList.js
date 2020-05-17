@@ -26,16 +26,10 @@ const DragDropList = ({
     }
 
     dispatch(reorderItem(listId, draggableId, source, destination));
-    // TODO update order of drag/drop items
-    // TODO has to happen synchronously??? That seems... bad
-    // TODO I wonder how this will work synchronously... w/ redux underneath as well
-    // TODO might have to flip order of activeList and DragAndDrop, or combine the two
   };
 
   return (
     <DragDropContext
-      // onDragStart={() => {}}
-      // onDragUpdate={() => {}}
       onDragEnd={onDragEnd}
     >
       <Droppable droppableId={listId}>
