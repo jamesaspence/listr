@@ -1,4 +1,4 @@
-import { listExistsWithItem, getItemFromList } from '../../../util/list';
+import { listExistsWithItem } from '../../../util/list';
 
 const reorderItemReducer = (state, action) => {
   const {
