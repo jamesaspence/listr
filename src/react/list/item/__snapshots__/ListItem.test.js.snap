@@ -4,6 +4,11 @@ exports[`matches snapshot 1`] = `
 <div
   className="ListItem"
 >
+  <div
+    className="ListItem__draggable"
+  >
+    :
+  </div>
   <Checkbox
     checked={false}
     className="ListItem__checkbox"
