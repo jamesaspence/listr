@@ -1,36 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches snapshot 1`] = `
-<List>
-  <AppCSSTransition
-    key="12345"
-    prefix="ListItem"
-    timeout={200}
-  >
-    <ListItem
-      checked={false}
-      index={0}
-      item="Test Item 12345"
-      itemId="12345"
-      key="12345"
-      onCheck={[Function]}
-      onDelete={[Function]}
-    />
-  </AppCSSTransition>
-  <AppCSSTransition
-    key="54321"
-    prefix="ListItem"
-    timeout={200}
-  >
-    <ListItem
-      checked={false}
-      index={1}
-      item="Test Item 54321"
-      itemId="54321"
-      key="54321"
-      onCheck={[Function]}
-      onDelete={[Function]}
-    />
-  </AppCSSTransition>
-</List>
+<DragDropList
+  items={
+    Array [
+      Object {
+        "checked": false,
+        "id": "12345",
+        "text": "Test Item 12345",
+      },
+      Object {
+        "checked": false,
+        "id": "54321",
+        "text": "Test Item 54321",
+      },
+    ]
+  }
+  listId="list12345"
+  onCheck={[Function]}
+  onDelete={[Function]}
+/>
 `;

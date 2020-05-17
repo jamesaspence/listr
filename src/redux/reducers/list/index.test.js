@@ -2,13 +2,15 @@ import listReducer, { DEFAULT_STATE, getPreloadedState } from './';
 import createItemReducer from './createItem';
 import toggleItemReducer from './toggleItem';
 import deleteItemReducer from './deleteItem';
-import { createItem, deleteItem, toggleItem } from '../../actions/list';
+import reorderItemReducer from './reorderItem';
+import { createItem, deleteItem, toggleItem, reorderItem } from '../../actions/list';
 import { clearData, getDataFromStorage, hasStoredData } from '../../../util/localStorage';
 import { generateNewId } from '../../../util/id';
 
 jest.mock('./createItem');
 jest.mock('./toggleItem');
 jest.mock('./deleteItem');
+jest.mock('./reorderItem');
 jest.mock('../../../util/localStorage');
 jest.mock('../../../util/id');
 
@@ -119,5 +121,11 @@ describe('correct reducer dispatch', () => {
     const action = deleteItem('1234', '123123');
     listReducer(DEFAULT_STATE, action);
     expectOnlyThisReducerCalled(deleteItemReducer, action);
+  });
+
+  it('handles reorder item correctly', () => {
+    const action = reorderItem('1234', 1, 3);
+    listReducer(DEFAULT_STATE, action);
+    expectOnlyThisReducerCalled(reorderItemReducer, action);
   });
 });

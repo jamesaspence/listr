@@ -1,5 +1,13 @@
+export const listExistsWithIndex = (lists, listId, index) => {
+  return listExists(lists, listId) && lists[listId].length > index;
+};
+
+export const listExists = (lists, listId) => {
+  return lists.hasOwnProperty(listId);
+};
+
 export const listExistsWithItem = (lists, listId, itemId) => {
-  if (!lists.hasOwnProperty(listId)) {
+  if (!listExists(lists, listId)) {
     return false;
   }
 
