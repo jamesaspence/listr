@@ -7,6 +7,7 @@
   margin: 6px 0;
   justify-content: flex-start;
   padding: 6px 12px;
+  background-color: $app-white;
 
   @include minWidth($size-mobile) {
     .DeleteButton {

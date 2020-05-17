@@ -3,8 +3,9 @@ import { shallow } from 'enzyme';
 import ActiveListContainer from './ActiveListContainer';
 import { useSelector, useDispatch } from 'react-redux';
 import NoListFallback from './NoListFallback';
-import ActiveList from './ActiveList';
+import List from './List';
 import { toggleItem, deleteItem } from '../../redux/actions/list';
+import ListItem from './item/ListItem';
 
 jest.mock('react-redux');
 jest.mock('../../redux/actions/list');
@@ -22,13 +23,10 @@ const listItems = [
     checked: false
   }
 ];
-const TEST_STATE = {
-  list: {
-    lists: {
-      [activeList]: listItems
-    },
-    activeList
-  }
+
+const SELECTOR_PROPS = {
+  items: listItems,
+  listId: activeList
 };
 
 const mockDispatch = jest.fn();
@@ -40,7 +38,7 @@ beforeEach(() => {
   deleteItem.mockReset();
   mockDispatch.mockReset();
 
-  useSelector.mockImplementation(selector => selector(TEST_STATE));
+  useSelector.mockImplementation(selector => SELECTOR_PROPS);
   useDispatch.mockReturnValue(mockDispatch);
 });
 
@@ -49,33 +47,38 @@ it('matches snapshot', () => {
 });
 
 it('renders fallback if no data available', () => {
-  useSelector.mockImplementation(() => null);
+  useSelector.mockImplementation(() => ({
+    items: null,
+    listId: null
+  }));
   const wrapper = shallow(<ActiveListContainer />);
   expect(wrapper.exists(NoListFallback)).toBeTruthy();
-  expect(wrapper.exists(ActiveList)).toBeFalsy();
+  expect(wrapper.exists(List)).toBeFalsy();
 });
 
 it('passes list to child list', () => {
   const wrapper = shallow(<ActiveListContainer />);
   expect(wrapper.exists(NoListFallback)).toBeFalsy();
-  expect(wrapper.exists(ActiveList)).toBeTruthy();
+  expect(wrapper.exists(List)).toBeTruthy();
 
-  const listWrapper = wrapper.find(ActiveList);
-  expect(listWrapper.prop('items')).toEqual(listItems);
-  expect(listWrapper.prop('onDelete')).not.toBeNull();
-  expect(listWrapper.prop('onToggle')).not.toBeNull();
+  wrapper.find(ListItem).forEach((listItem, i) => {
+    expect(i).toBeLessThan(listItems.length);
+    const { checked, text } = listItems[i];
+    expect(listItem.prop('checked')).toEqual(checked);
+    expect(listItem.prop('item')).toEqual(text);
+  });
 });
 
 it('passes correct props to action dispatchers', () => {
   const wrapper = shallow(<ActiveListContainer />);
 
-  const listWrapper = wrapper.find(ActiveList);
-  const onDelete = listWrapper.prop('onDelete');
-  const onToggle = listWrapper.prop('onToggle');
+  const firstListItem = wrapper.find(ListItem).first();
+  const onDelete = firstListItem.prop('onDelete');
+  const onCheck = firstListItem.prop('onCheck');
 
   const testItemId = 'testItem12345';
   onDelete(testItemId);
-  onToggle(testItemId);
+  onCheck(testItemId);
   expect(toggleItem).toHaveBeenCalledTimes(1);
   expect(deleteItem).toHaveBeenCalledTimes(1);
   expect(mockDispatch).toHaveBeenCalledTimes(2);
