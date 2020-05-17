@@ -16,19 +16,6 @@ jest.mock('react-redux', () => {
   };
 });
 jest.mock('../../redux/actions/list');
-// We need to mock this out because otherwise reactRedux.connect fails!
-jest.mock('./DragDropList', () => {
-  return {
-    __esModule: true,
-    default: jest.fn(({ children }) => {
-      return (
-        <div className="DragDropList">
-          {children}
-        </div>
-      );
-    })
-  };
-});
 
 const activeList = 'list12345';
 const listItems = [
@@ -57,11 +44,9 @@ beforeEach(() => {
   toggleItem.mockReset();
   deleteItem.mockReset();
   mockDispatch.mockReset();
-  DragDropList.mockReset();
 
   useSelector.mockImplementation(selector => SELECTOR_PROPS);
   useDispatch.mockReturnValue(mockDispatch);
-  DragDropList.mockImplementation();
 });
 
 it('matches snapshot', () => {
