@@ -21,10 +21,9 @@ export const deleteItem = (listId, itemId) => ({
   itemId
 });
 
-export const reorderItem = (listId, itemId, source, destination) => ({
+export const reorderItem = (listId, sourceIndex, destinationIndex) => ({
   type: REORDER_ITEM,
   listId,
-  itemId,
-  source,
-  destination
+  sourceIndex,
+  destinationIndex
 });

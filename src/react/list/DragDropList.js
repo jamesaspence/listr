@@ -21,11 +21,7 @@ const DragDropList = ({
       return;
     }
 
-    if (destination.index === source.index) {
-      return;
-    }
-
-    dispatch(reorderItem(listId, draggableId, source, destination));
+    dispatch(reorderItem(listId, draggableId, source.index, destination.index));
   };
 
   return (

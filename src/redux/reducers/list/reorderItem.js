@@ -1,22 +1,29 @@
-import { listExistsWithItem } from '../../../util/list';
+import { listExistsWithIndex } from '../../../util/list';
 
 const reorderItemReducer = (state, action) => {
   const {
     listId,
-    itemId,
-    source,
-    destination
+    sourceIndex,
+    destinationIndex
   } = action;
   const { lists } = state;
 
-  if (!listExistsWithItem(lists, listId, itemId)) {
+  if (!listExistsWithIndex(lists, listId, sourceIndex)) {
+    return state;
+  }
+  const items = lists[listId];
+
+  if (items.length <= destinationIndex) {
     return state;
   }
 
-  const items = lists[listId];
+  if (destinationIndex === sourceIndex) {
+    return state;
+  }
+
   const sortedItems = Array.from(items);
-  sortedItems.splice(source.index, 1);
-  sortedItems.splice(destination.index, 0, items[source.index]);
+  sortedItems.splice(sourceIndex, 1);
+  sortedItems.splice(destinationIndex, 0, items[sourceIndex]);
 
   return {
     ...state,

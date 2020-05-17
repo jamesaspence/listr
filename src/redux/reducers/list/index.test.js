@@ -124,9 +124,7 @@ describe('correct reducer dispatch', () => {
   });
 
   it('handles reorder item correctly', () => {
-    const source = { index: 1 };
-    const destination = { index: 3 };
-    const action = reorderItem('1234', '123123', source, destination);
+    const action = reorderItem('1234', 1, 3);
     listReducer(DEFAULT_STATE, action);
     expectOnlyThisReducerCalled(reorderItemReducer, action);
   });
