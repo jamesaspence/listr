@@ -15,13 +15,13 @@ const DragDropList = ({
   const dispatch = useDispatch();
 
   const onDragEnd = result => {
-    const { destination, source, draggableId } = result;
+    const { destination, source } = result;
 
     if (!destination) {
       return;
     }
 
-    dispatch(reorderItem(listId, draggableId, source.index, destination.index));
+    dispatch(reorderItem(listId, source.index, destination.index));
   };
 
   return (
