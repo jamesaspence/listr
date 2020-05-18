@@ -6,6 +6,7 @@
   border-bottom: 1px solid #afafaf;
   margin: 6px 0;
   justify-content: flex-start;
+  align-items: center;
   padding: 6px 12px;
   background-color: $app-white;
 
@@ -31,7 +32,6 @@
 
   .ListItem__text {
     flex: 1;
-    overflow: scroll;
     margin: 12px 0;
     line-height: 26px;
   }
