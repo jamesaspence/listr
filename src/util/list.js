@@ -18,3 +18,6 @@ export const getItemFromList = (list, itemId) => {
   return list.find(indvItem => indvItem.id === itemId);
 };
 
+export const listAllChecked = (list) => {
+  return list.every(indvItem => indvItem.checked);
+};
