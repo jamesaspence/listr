@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="CheckAllToggle"
+>
+  <Checkbox
+    checked={true}
+    id="foo"
+    onChange={[Function]}
+  />
+  <div
+    className="CheckAllToggle__textWrap"
+  >
+    <label
+      className="CheckAllToggle__textLabel"
+      htmlFor="foo"
+      onClick={[Function]}
+    >
+      Check / uncheck all
+    </label>
+  </div>
+</div>
+`;
