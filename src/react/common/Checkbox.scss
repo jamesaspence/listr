@@ -28,6 +28,8 @@
     width: 18px;
     height: 18px;
     cursor: pointer;
+    // This is to center the checkbox within its parent
+    margin-top: -3px;
 
     &::before, &::after {
       position: absolute;
