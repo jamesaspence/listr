@@ -2,19 +2,19 @@
 
 exports[`matches snapshot 1`] = `
 <div
-  className="Checkbox undefined"
-  onClick={[Function]}
+  className="Checkbox checkbox"
+  onClick={[MockFunction]}
 >
   <input
     checked={false}
     className="Checkbox__toggle"
-    id="Checkbox-2"
-    onChange={[Function]}
+    id="foo"
+    onChange={[MockFunction]}
     type="checkbox"
   />
   <label
     className="Checkbox__toggleLabel"
-    htmlFor="Checkbox-2"
+    htmlFor="foo"
   />
 </div>
 `;
