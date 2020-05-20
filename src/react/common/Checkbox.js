@@ -2,7 +2,7 @@ import React from 'react';
 import './Checkbox.scss';
 
 const Checkbox = ({
-  className = null,
+  className = '',
   id,
   checked = false,
   onChange
