@@ -1,16 +1,23 @@
 @import "../../mixins";
 
 .CheckAllToggle {
-  grid-column: 1 / 5;
   @include gridLayout();
+  grid-column: 1 / 5;
+  align-items: center;
   margin: 12px 0;
 
   .Checkbox {
     grid-column: 2 / 3;
   }
 
-  .CheckAllToggle__textLabel {
+  .CheckAllToggle__textWrap {
     grid-column: 3 / 4;
-    //text-decoration: ;
+
+    .CheckAllToggle__textLabel {
+      font-style: italic;
+      font-size: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
   }
 }

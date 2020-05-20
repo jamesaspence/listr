@@ -22,9 +22,11 @@ const CheckAllToggle = ({ id }) => {
         id={id}
         onChange={onChange}
       />
-      <label htmlFor={id} className="CheckAllToggle__textLabel" onClick={onChange}>
-        Check / uncheck all
-      </label>
+      <div className="CheckAllToggle__textWrap">
+        <label htmlFor={id} className="CheckAllToggle__textLabel" onClick={onChange}>
+          Check / uncheck all
+        </label>
+      </div>
     </div>
   );
 };
