@@ -13,3 +13,8 @@
     @content;
   }
 }
+
+@mixin gridLayout() {
+  display: grid;
+  grid-template-columns: 55px 72px 1fr 76px;
+}

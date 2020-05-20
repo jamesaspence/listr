@@ -2,6 +2,7 @@
 @import '../../../mixins';
 
 .NewListItemPrompt {
+  grid-column: 1 / 5;
   padding: 12px;
   margin-bottom: 12px;
   border-bottom: 1px solid #afafaf;

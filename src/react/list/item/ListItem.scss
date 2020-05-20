@@ -2,12 +2,11 @@
 @import '../../../mixins';
 
 .ListItem {
-  display: flex;
+  @include gridLayout();
   border-bottom: 1px solid #afafaf;
-  margin: 6px 0;
   justify-content: flex-start;
   align-items: center;
-  padding: 6px 12px;
+  padding: 12px 0;
   background-color: $app-white;
 
   @include minWidth($size-mobile) {
@@ -27,7 +26,6 @@
 
   .ListItem__checkbox {
     cursor: pointer;
-    margin-right: 12px;
   }
 
   .ListItem__text {
