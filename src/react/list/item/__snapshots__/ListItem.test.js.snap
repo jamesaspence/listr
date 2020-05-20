@@ -7,7 +7,7 @@ exports[`matches snapshot 1`] = `
   <DraggableHandle
     dragHandleProps={Object {}}
   />
-  <Checkbox
+  <ItemCheckbox
     checked={false}
     className="ListItem__checkbox"
     index={1}

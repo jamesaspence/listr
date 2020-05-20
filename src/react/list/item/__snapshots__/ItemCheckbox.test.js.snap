@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<Checkbox
+  checked={false}
+  id="Checkbox-2"
+  onChange={[Function]}
+/>
+`;

@@ -15,6 +15,11 @@ export const listExistsWithItem = (lists, listId, itemId) => {
 };
 
 export const getItemFromList = (list, itemId) => {
-  return list.find(indvItem => indvItem.id === itemId);
+  const item = list.find(indvItem => indvItem.id === itemId);
+  // convert undefined -> null
+  return item == null ? null : item;
 };
 
+export const listAllChecked = (list) => {
+  return list.every(indvItem => indvItem.checked);
+};

@@ -3,9 +3,10 @@ import createItemReducer from './createItem';
 import toggleItemReducer from './toggleItem';
 import deleteItemReducer from './deleteItem';
 import reorderItemReducer from './reorderItem';
-import { createItem, deleteItem, toggleItem, reorderItem } from '../../actions/list';
+import { createItem, deleteItem, toggleItem, reorderItem, toggleAllChecked } from '../../actions/list';
 import { clearData, getDataFromStorage, hasStoredData } from '../../../util/localStorage';
 import { generateNewId } from '../../../util/id';
+import toggleAllCheckedReducer from './toggleAllChecked';
 
 jest.mock('./createItem');
 jest.mock('./toggleItem');
@@ -127,5 +128,11 @@ describe('correct reducer dispatch', () => {
     const action = reorderItem('1234', 1, 3);
     listReducer(DEFAULT_STATE, action);
     expectOnlyThisReducerCalled(reorderItemReducer, action);
+  });
+
+  it('handles toggle all checked correctly', () => {
+    const action = toggleAllChecked('1234');
+    listReducer(DEFAULT_STATE, action);
+    expectOnlyThisReducerCalled(toggleAllCheckedReducer, action);
   });
 });

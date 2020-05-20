@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Layout from './common/Layout';
+import Layout from './common/layout/Layout';
 import ListView from './views/ListView';
 
 function App() {

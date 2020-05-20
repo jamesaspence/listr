@@ -1,6 +1,6 @@
 import React from 'react';
 import './ListItem.scss';
-import Checkbox from './Checkbox';
+import ItemCheckbox from './ItemCheckbox';
 import DeleteButton from './DeleteButton';
 import DraggableHandle from './DraggableHandle';
 
@@ -22,7 +22,7 @@ const ListItem = ({
       className="ListItem"
     >
       <DraggableHandle dragHandleProps={dragHandleProps} />
-      <Checkbox className="ListItem__checkbox" checked={checked} index={index} itemId={itemId} onChange={onCheck} />
+      <ItemCheckbox className="ListItem__checkbox" checked={checked} index={index} itemId={itemId} onChange={onCheck} />
       <p className={`ListItem__text ${checked ? 'ListItem__text--checked' : ''}`}>
         {item}
       </p>
