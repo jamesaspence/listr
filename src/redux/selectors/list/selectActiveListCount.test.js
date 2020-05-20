@@ -26,6 +26,6 @@ it('returns correct size if active list is set', () => {
     }
   ];
   const expectedLength = expectedList.length;
-  selectActiveList.mockReturnValueOnce(expectedLength);
+  selectActiveList.mockReturnValueOnce(expectedList);
   expect(selectActiveListCount({})).toEqual(expectedLength);
 });
