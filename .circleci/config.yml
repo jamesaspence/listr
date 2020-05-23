@@ -1,0 +1,54 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  build:
+    executor:
+      name: node/default
+    environment:
+      - CI=true
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-dependencies-{{ checksum "yarn.lock" }}
+      - run:
+          name: "Run Yarn"
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+            - node_modules
+      - run:
+          name: "Run Tests"
+          command: yarn test
+      - run:
+          name: "Build"
+          command: yarn build
+  deploy-prod:
+    executor:
+      name: node/default
+    steps:
+      - run:
+          name: "Deploy to Droplet"
+          command: ssh $DEPLOY_SSH_HOST@$DEPLOY_SSH_USER "cd listr && yarn run deploy"
+workflows:
+  build-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - deploy-prod:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v\d+\.\d+\.\d+/
