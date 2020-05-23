@@ -10,17 +10,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Test"
-          command: echo 'hello there'
-#      - run:
-#          name: "Run Yarn"
-#          command: yarn
-#      - run:
-#          name: "Run Tests"
-#          command: yarn test
-#      - run:
-#          name: "Build"
-#          command: yarn build
+          name: "Run Yarn"
+          command: yarn
+      - run:
+          name: "Run Tests"
+          command: yarn test
+      - run:
+          name: "Build"
+          command: yarn build
 workflows:
   build-deploy:
     jobs:
