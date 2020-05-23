@@ -9,17 +9,15 @@ jobs:
       - CI=true
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run:
-              name: "Run Yarn"
-              command: yarn
-            - run:
-              name: "Run Tests"
-              command: yarn test
-            - run:
-              name: "Build"
-              command: yarn build
+      - run:
+        name: "Run Yarn"
+        command: yarn
+      - run:
+        name: "Run Tests"
+        command: yarn test
+      - run:
+        name: "Build"
+        command: yarn build
 workflows:
     build:
       jobs:
