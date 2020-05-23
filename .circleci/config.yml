@@ -9,6 +9,10 @@ jobs:
       - CI=true
     steps:
       - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: "Run Yarn"
           command: yarn install --non-interactive
@@ -18,6 +22,11 @@ jobs:
       - run:
           name: "Build"
           command: yarn build
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
   deploy-prod:
     executor:
       name: node/default
