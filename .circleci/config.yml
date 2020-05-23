@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: "Run Yarn"
-          command: yarn
+          command: yarn install --non-interactive
       - run:
           name: "Run Tests"
           command: yarn test
