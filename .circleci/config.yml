@@ -9,8 +9,8 @@ jobs:
       - CI=true
     steps:
       - run:
-        name: "Test Echo"
-        command: "Echo 'why hello there!'"
+          name: "Test Echo"
+          command: "Echo 'why hello there!'"
 #      - checkout
 #      - run:
 #          name: "Run Yarn"
