@@ -10,7 +10,7 @@ jobs:
     steps:
       - run:
           name: "Test Echo"
-          command: "Echo 'why hello there!'"
+          command: echo 'why hello there!'
 #      - checkout
 #      - run:
 #          name: "Run Yarn"
