@@ -10,14 +10,14 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "Run Yarn"
-        command: yarn
+          name: "Run Yarn"
+          command: yarn
       - run:
-        name: "Run Tests"
-        command: yarn test
+          name: "Run Tests"
+          command: yarn test
       - run:
-        name: "Build"
-        command: yarn build
+          name: "Build"
+          command: yarn build
 workflows:
   build-deploy:
     jobs:
