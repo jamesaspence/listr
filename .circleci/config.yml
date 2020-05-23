@@ -30,4 +30,3 @@ workflows:
               only:
                 - master
                 - develop
-                - feature/circleci
