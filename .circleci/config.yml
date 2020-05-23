@@ -8,7 +8,7 @@ jobs:
     environment:
       - CI=true
     steps:
-      run:
+      - run:
         name: "Test Echo"
         command: "Echo 'why hello there!'"
 #      - checkout
