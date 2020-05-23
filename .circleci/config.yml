@@ -16,17 +16,17 @@ jobs:
       - run:
           name: "Run Yarn"
           command: yarn install --non-interactive
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
       - run:
           name: "Run Tests"
           command: yarn test
       - run:
           name: "Build"
           command: yarn build
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
   deploy-prod:
     executor:
       name: node/default
