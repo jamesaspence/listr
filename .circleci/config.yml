@@ -35,6 +35,10 @@ workflows:
                 - master
                 - develop
       - deploy-prod:
+          requires:
+            - build
           filters:
+            branches:
+              ignore: /.*/
             tags:
               only: /v\d+\.\d+\.\d+/
