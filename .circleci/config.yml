@@ -8,16 +8,19 @@ jobs:
     environment:
       - CI=true
     steps:
-      - checkout
-      - run:
-          name: "Run Yarn"
-          command: yarn
-      - run:
-          name: "Run Tests"
-          command: yarn test
-      - run:
-          name: "Build"
-          command: yarn build
+      run:
+        name: "Test Echo"
+        command: "Echo 'why hello there!'"
+#      - checkout
+#      - run:
+#          name: "Run Yarn"
+#          command: yarn
+#      - run:
+#          name: "Run Tests"
+#          command: yarn test
+#      - run:
+#          name: "Build"
+#          command: yarn build
 workflows:
   build-deploy:
     jobs:
