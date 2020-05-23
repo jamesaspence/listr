@@ -1,0 +1,29 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  build:
+    executor:
+      name: node/default
+    environment:
+      - CI=true
+    steps:
+      - checkout
+      - run:
+          name: "Run Yarn"
+          command: yarn install --non-interactive
+      - run:
+          name: "Run Tests"
+          command: yarn test
+      - run:
+          name: "Build"
+          command: yarn build
+workflows:
+  build-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+                - develop
