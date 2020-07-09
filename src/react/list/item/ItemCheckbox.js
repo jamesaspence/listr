@@ -9,7 +9,6 @@ const ItemCheckbox = ({
   onChange
 }) => {
   const onToggle = event => {
-    event.preventDefault();
     onChange(itemId, event);
   };
   const id = `Checkbox-${index + 1}`;

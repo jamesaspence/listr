@@ -3,18 +3,26 @@
 exports[`matches snapshot 1`] = `
 <div
   className="Checkbox checkbox"
-  onClick={[MockFunction]}
 >
   <input
     checked={false}
-    className="Checkbox__toggle"
+    className="Checkbox__hidden"
     id="foo"
     onChange={[MockFunction]}
     type="checkbox"
   />
   <label
-    className="Checkbox__toggleLabel"
+    className="Checkbox__styled "
     htmlFor="foo"
-  />
+  >
+    <svg
+      className="Checkbox__icon"
+      viewBox="0 0 24 24"
+    >
+      <polyline
+        points="20 6 9 17 4 12"
+      />
+    </svg>
+  </label>
 </div>
 `;
