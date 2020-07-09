@@ -28,6 +28,7 @@
     background-color: papayawhip;
     border-radius: 3px;
     transition: all 150ms;
+    cursor: pointer;
 
     &.Checkbox__checked {
       background-color: salmon;
