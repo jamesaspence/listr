@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-import { render, screen, fireEvent } from '@testing-library/react';
 import Checkbox from './Checkbox';
 import React from 'react';
 
@@ -11,18 +10,16 @@ const TEST_PROPS = {
 };
 
 it('matches snapshot', () => {
-  const { container } = render(<Checkbox {...TEST_PROPS} />);
-  expect(container.firstChild).toMatchSnapshot();
+  expect(shallow(<Checkbox {...TEST_PROPS} />)).toMatchSnapshot();
 });
 
-it('is unchecked by default', () => {
+it('is unchecked correctly', () => {
   const props = {
     ...TEST_PROPS,
     checked: false
   };
-  const { container } = render(<Checkbox {...props} />);
-  const checkbox = container.querySelector('input[type="checkbox"]');
-  expect(checkbox.checked).toBeFalsy();
+  const container = shallow(<Checkbox {...props} />);
+  expect(container.find('input[type="checkbox"]').prop('checked')).toBeFalsy();
 });
 
 it('is checked correctly', () => {
@@ -30,16 +27,15 @@ it('is checked correctly', () => {
     ...TEST_PROPS,
     checked: true
   };
-  const { container } = render(<Checkbox {...props} />);
-  const checkbox = container.querySelector('input[type="checkbox"]');
-  expect(checkbox.checked).toBeTruthy();
+  const container = shallow(<Checkbox {...props} />);
+  expect(container.find('input[type="checkbox"]').prop('checked')).toBeTruthy();
 });
 
 it('triggers on change correctly', () => {
-  const { container } = render(<Checkbox {...TEST_PROPS} />);
-  const checkbox = container.querySelector('input[type="checkbox"]');
-  fireEvent.change(checkbox);
+  const container = shallow(<Checkbox {...TEST_PROPS} />);
+  const expectedEvent = new window.Event('change');
   const { onChange } = TEST_PROPS;
+  container.find('input[type="checkbox"]').simulate('change', expectedEvent);
   expect(onChange).toHaveBeenCalledTimes(1);
-  expect(checkbox.checked).toBeTruthy();
+  expect(onChange).toHaveBeenCalledWith(expectedEvent);
 });
