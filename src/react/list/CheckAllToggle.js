@@ -23,9 +23,9 @@ const CheckAllToggle = ({ id }) => {
         onChange={onChange}
       />
       <div className="CheckAllToggle__textWrap">
-        <label htmlFor={id} className="CheckAllToggle__textLabel" onClick={onChange}>
+        <div className="CheckAllToggle__textLabel" onClick={onChange}>
           Check / uncheck all
-        </label>
+        </div>
       </div>
     </div>
   );
