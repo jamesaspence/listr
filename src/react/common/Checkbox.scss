@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .Checkbox {
   display: inline-block;
   vertical-align: middle;
@@ -17,7 +19,7 @@
     width: 1px;
 
     &:focus + .Checkbox__styled {
-      box-shadow: 0 0 0 3px pink;
+      box-shadow: 0 0 0 3px rgb(59, 153, 252);
     }
   }
 
@@ -31,7 +33,7 @@
     cursor: pointer;
 
     &.Checkbox__checked {
-      background-color: salmon;
+      background-color: $app-black;
 
       .Checkbox__icon {
         visibility: visible;
