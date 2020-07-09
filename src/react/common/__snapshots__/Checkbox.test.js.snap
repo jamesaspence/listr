@@ -5,6 +5,7 @@ exports[`matches snapshot 1`] = `
   className="Checkbox checkbox"
 >
   <input
+    checked={false}
     className="Checkbox__hidden"
     id="foo"
     onChange={[MockFunction]}
