@@ -64,7 +64,7 @@ it('dispatches correct values', () => {
 it('dispatches if label is clicked', () => {
   selectActiveListAllChecked.mockReturnValueOnce(true);
   const wrapper = shallow(<CheckAllToggle {...TEST_PROPS} />);
-  wrapper.find('label.CheckAllToggle__textLabel').simulate('click');
+  wrapper.find('.CheckAllToggle__textLabel').simulate('click');
   expect(mockDispatch).toHaveBeenCalledTimes(1);
   expect(mockDispatch).toHaveBeenCalledWith(toggleAllChecked(expectedListId));
 });

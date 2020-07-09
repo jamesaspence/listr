@@ -24,6 +24,12 @@
     }
   }
 
+  .Checkbox__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .ListItem__checkbox {
     cursor: pointer;
   }
@@ -37,12 +43,5 @@
   .ListItem__text--checked {
     text-decoration: line-through;
     opacity: 0.75;
-  }
-
-  @include minWidth($size-mobile) {
-    .ListItem__checkbox {
-      min-width: 72px;
-      margin-right: 0;
-    }
   }
 }

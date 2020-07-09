@@ -8,9 +8,13 @@ const Checkbox = ({
   onChange
 }) => {
   return (
-    <div className={`Checkbox ${className}`} onClick={onChange}>
-      <input className="Checkbox__toggle" type="checkbox" id={id} onChange={onChange} checked={checked}/>
-      <label className="Checkbox__toggleLabel" htmlFor={id} />
+    <div className={`Checkbox ${className}`}>
+      <input type="checkbox" className="Checkbox__hidden" id={id} checked={checked} onChange={onChange}/>
+      <label htmlFor={id} className={`Checkbox__styled ${checked ? 'Checkbox__checked' : ''}`}>
+        <svg className="Checkbox__icon" viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      </label>
     </div>
   );
 };

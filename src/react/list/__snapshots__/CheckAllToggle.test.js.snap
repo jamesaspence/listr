@@ -12,13 +12,12 @@ exports[`matches snapshot 1`] = `
   <div
     className="CheckAllToggle__textWrap"
   >
-    <label
+    <div
       className="CheckAllToggle__textLabel"
-      htmlFor="foo"
       onClick={[Function]}
     >
       Check / uncheck all
-    </label>
+    </div>
   </div>
 </div>
 `;
