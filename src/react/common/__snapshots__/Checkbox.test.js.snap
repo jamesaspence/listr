@@ -1,26 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches snapshot 1`] = `
-<div
-  class="Checkbox checkbox"
+<label
+  class="Checkbox checkbox "
 >
   <input
     class="Checkbox__hidden"
     id="foo"
     type="checkbox"
   />
-  <label
-    class="Checkbox__styled "
-    for="foo"
+  <svg
+    class="Checkbox__icon"
+    viewBox="0 0 24 24"
   >
-    <svg
-      class="Checkbox__icon"
-      viewBox="0 0 24 24"
-    >
-      <polyline
-        points="20 6 9 17 4 12"
-      />
-    </svg>
-  </label>
-</div>
+    <polyline
+      points="20 6 9 17 4 12"
+    />
+  </svg>
+</label>
 `;

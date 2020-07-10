@@ -4,7 +4,26 @@
   display: inline-block;
   vertical-align: middle;
   width: 16px;
+  height: 16px;
   margin: 0 auto;
+  background-color: papayawhip;
+  border-radius: 3px;
+  transition: all 150ms;
+
+  &.Checkbox__checked {
+    background-color: #09cb9f;
+
+    .Checkbox__icon {
+      visibility: visible;
+    }
+  }
+
+  .Checkbox__icon {
+    fill: none;
+    stroke: white;
+    stroke-width: 2px;
+    visibility: hidden;
+  }
 
   .Checkbox__hidden {
     border: 0;
@@ -20,31 +39,6 @@
 
     &:focus + .Checkbox__styled {
       box-shadow: 0 0 0 3px rgb(59, 153, 252);
-    }
-  }
-
-  .Checkbox__styled {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background-color: papayawhip;
-    border-radius: 3px;
-    transition: all 150ms;
-    cursor: pointer;
-
-    &.Checkbox__checked {
-      background-color: #09cb9f;
-
-      .Checkbox__icon {
-        visibility: visible;
-      }
-    }
-
-    .Checkbox__icon {
-      fill: none;
-      stroke: white;
-      stroke-width: 2px;
-      visibility: hidden;
     }
   }
 }
