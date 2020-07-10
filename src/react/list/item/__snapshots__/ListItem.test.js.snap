@@ -2,24 +2,42 @@
 
 exports[`matches snapshot 1`] = `
 <div
-  className="ListItem"
+  class="ListItem"
 >
-  <DraggableHandle
-    dragHandleProps={Object {}}
-  />
-  <ItemCheckbox
-    checked={false}
-    className="ListItem__checkbox"
-    index={1}
-    itemId="123"
-    onChange={[MockFunction]}
-  />
+  <div
+    class="DraggableHandle"
+  >
+    :
+  </div>
+  <label
+    class="Checkbox ListItem__checkbox "
+  >
+    <input
+      class="Checkbox__hidden"
+      id="Checkbox-2"
+      type="checkbox"
+    />
+    <svg
+      class="Checkbox__icon"
+      viewBox="0 0 24 24"
+    >
+      <polyline
+        points="20 6 9 17 4 12"
+      />
+    </svg>
+  </label>
   <p
-    className="ListItem__text "
+    class="ListItem__text "
   />
-  <DeleteButton
-    itemId="123"
-    onDelete={[MockFunction]}
-  />
+  <div
+    class="DeleteButton"
+  >
+    <button
+      class="DeleteButton__inner"
+      type="button"
+    >
+      Delete
+    </button>
+  </div>
 </div>
 `;

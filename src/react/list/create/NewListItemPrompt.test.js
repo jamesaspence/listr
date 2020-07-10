@@ -1,29 +1,30 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 import NewListItemPrompt from './NewListItemPrompt';
 
 const onNewItem = jest.fn();
 
+beforeEach(() => {
+  onNewItem.mockReset();
+});
+
 it('matches snapshot', () => {
-  expect(shallow(<NewListItemPrompt onNewItem={onNewItem} />)).toMatchSnapshot();
+  const { container } = render(<NewListItemPrompt onNewItem={onNewItem} />);
+  expect(container.firstChild).toMatchSnapshot();
 });
 
 it('does not trigger callback if value is empty', () => {
-  const container = shallow(<NewListItemPrompt onNewItem={onNewItem}/>);
-
-  container.find('.NewListItemPrompt__input').simulate('change', { target: { value: '' } });
-  container.find('form').simulate('submit', new window.Event('submit'));
-
-  expect(onNewItem.mock.calls.length).toEqual(0);
+  const { container } = render(<NewListItemPrompt onNewItem={onNewItem}/>);
+  fireEvent.submit(container.querySelector('form'));
+  expect(onNewItem).toHaveBeenCalledTimes(0);
 });
 
 it('sends value to callback on submit', () => {
-  const container = shallow(<NewListItemPrompt onNewItem={onNewItem}/>);
+  const { container } = render(<NewListItemPrompt onNewItem={onNewItem}/>);
   const expectedText = 'oranges';
+  fireEvent.change(container.querySelector('input'), { target: { value: expectedText } });
+  fireEvent.submit(container.querySelector('form'));
 
-  container.find('.NewListItemPrompt__input').simulate('change', { target: { value: expectedText } });
-  container.find('form').simulate('submit', new window.Event('submit'));
-
-  expect(onNewItem.mock.calls.length).toEqual(1);
-  expect(onNewItem.mock.calls[0][0]).toEqual(expectedText);
+  expect(onNewItem).toHaveBeenCalledTimes(1);
+  expect(onNewItem).toHaveBeenCalledWith(expectedText);
 });

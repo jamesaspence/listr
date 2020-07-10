@@ -1,9 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import ListItem from './ListItem';
-import DeleteButton from './DeleteButton';
-
-const onCheck = jest.fn();
 
 const TEST_PROPS = {
   onCheck: jest.fn(),
@@ -17,17 +14,6 @@ const TEST_PROPS = {
 };
 
 it('matches snapshot', () => {
-  expect(shallow(<ListItem {...TEST_PROPS} />)).toMatchSnapshot();
-});
-
-it('is unchecked correctly', () => {
-  const container = shallow(<ListItem {...TEST_PROPS} />);
-  expect(container.find('.ListItem__checkbox').prop('checked')).toBeFalsy();
-  expect(container.find('p').hasClass('ListItem__text--checked')).toBeFalsy();
-});
-
-it('is checked correctly', () => {
-  const container = shallow(<ListItem {...TEST_PROPS} checked={true} />);
-  expect(container.find('.ListItem__checkbox').prop('checked')).toBeTruthy();
-  expect(container.find('p').hasClass('ListItem__text--checked')).toBeTruthy();
+  const { container } = render(<ListItem {...TEST_PROPS} />);
+  expect(container.firstChild).toMatchSnapshot();
 });

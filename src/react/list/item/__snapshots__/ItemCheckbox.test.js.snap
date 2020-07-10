@@ -1,9 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`matches snapshot 1`] = `
-<Checkbox
-  checked={false}
-  id="Checkbox-2"
-  onChange={[Function]}
-/>
+<label
+  class="Checkbox  "
+>
+  <input
+    class="Checkbox__hidden"
+    id="Checkbox-2"
+    type="checkbox"
+  />
+  <svg
+    class="Checkbox__icon"
+    viewBox="0 0 24 24"
+  >
+    <polyline
+      points="20 6 9 17 4 12"
+    />
+  </svg>
+</label>
 `;
