@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 import Header from './Header';
 
 jest.mock('../../../package.json', () => ({
@@ -7,5 +7,6 @@ jest.mock('../../../package.json', () => ({
 }));
 
 it('matches snapshot', () => {
-  expect(shallow(<Header />)).toMatchSnapshot();
+  const { container } = render(<Header />);
+  expect(container.firstChild).toMatchSnapshot();
 });

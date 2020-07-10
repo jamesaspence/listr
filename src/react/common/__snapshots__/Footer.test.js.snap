@@ -2,14 +2,14 @@
 
 exports[`matches snapshot 1`] = `
 <footer
-  className="Footer"
+  class="Footer"
 >
   <small
-    className="Attribution"
+    class="Attribution"
   >
     Logo made by 
     <a
-      className="Attribution__link"
+      class="Attribution__link"
       href="https://www.flaticon.com/authors/vectors-market"
       title="Vectors Market"
     >
@@ -17,7 +17,7 @@ exports[`matches snapshot 1`] = `
     </a>
      from 
     <a
-      className="Attribution__link"
+      class="Attribution__link"
       href="https://www.flaticon.com/"
       title="Flaticon"
     >
