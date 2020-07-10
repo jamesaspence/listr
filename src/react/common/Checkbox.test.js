@@ -1,4 +1,5 @@
 import { shallow } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 import Checkbox from './Checkbox';
 import React from 'react';
 
@@ -10,7 +11,8 @@ const TEST_PROPS = {
 };
 
 it('matches snapshot', () => {
-  expect(shallow(<Checkbox {...TEST_PROPS} />)).toMatchSnapshot();
+  const { container } = render(<Checkbox {...TEST_PROPS} />);
+  expect(container.firstChild).toMatchSnapshot();
 });
 
 it('is unchecked correctly', () => {
