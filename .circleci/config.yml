@@ -28,20 +28,7 @@ jobs:
       - run:
           name: "Build"
           command: yarn build
-  deploy-prod:
-    executor:
-      name: node/default
-    steps:
-      - run:
-          name: "Deploy to Droplet"
-          command: ssh $DEPLOY_SSH_USER@$DEPLOY_SSH_HOST "cd listr && yarn run deploy"
 workflows:
-  build-deploy:
+  build:
     jobs:
       - build
-      - deploy-prod:
-          requires:
-            - build
-          filters:
-            tags:
-              only: /v\d+\.\d+\.\d+/
