@@ -30,13 +30,21 @@
   .NewlistItemPrompt__submit {
     font-size: 16px;
     margin: 0 12px;
-    background-color: #09cb9f;
-    color: #fff;
     padding: 12px;
     border-radius: 6px;
     cursor: pointer;
 
-    &:hover {
+    &:not(.disabled) {
+      background-color: #09cb9f;
+      color: #fff;
+    }
+
+    &.disabled {
+      background-color: #705959;
+      color: #fff;
+    }
+
+    &:hover:not(.disabled) {
       opacity: 0.9;
     }
   }
