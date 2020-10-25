@@ -1,5 +1,5 @@
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
 import NewListItemPrompt from './NewListItemPrompt';
 
 const onNewItem = jest.fn();
@@ -26,4 +26,11 @@ it('sends value to callback on submit', () => {
 
   expect(onNewItem.mock.calls.length).toEqual(1);
   expect(onNewItem.mock.calls[0][0]).toEqual(expectedText);
+});
+
+it('is disabled on empty string input', () => {
+  const container = shallow(<NewListItemPrompt onNewItem={onNewItem}/>);
+
+  container.find('.NewListItemPrompt__input').simulate('change', { target: { value: '   ' } });
+  container.find('.NewListItemPrompt__submit').hasClass('disabled');
 });
