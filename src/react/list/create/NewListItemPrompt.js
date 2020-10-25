@@ -20,7 +20,7 @@ const NewListItemPrompt = ({ onNewItem }) => {
   };
 
   const isValidItemName = value.trim() !== '';
-  const submitDisabledClassName = `NewlistItemPrompt__submit ${isValidItemName ? '' : 'disabled'}`;
+  const submitDisabledClassName = `NewListItemPrompt__submit ${isValidItemName ? '' : 'disabled'}`;
 
   return (
     <form className="NewListItemPrompt" onSubmit={onSubmit}>
