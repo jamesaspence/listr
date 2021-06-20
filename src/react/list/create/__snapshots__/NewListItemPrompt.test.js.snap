@@ -13,7 +13,8 @@ exports[`matches snapshot 1`] = `
     value=""
   />
   <button
-    className="NewlistItemPrompt__submit"
+    className="NewListItemPrompt__submit disabled"
+    disabled={true}
     type="submit"
   >
     Submit
