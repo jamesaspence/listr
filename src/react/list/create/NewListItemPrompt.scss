@@ -33,16 +33,13 @@
     padding: 12px;
     border-radius: 6px;
     cursor: pointer;
-
-    &:not(.disabled) {
-      background-color: #09cb9f;
-      color: #fff;
-    }
+    background-color: #09cb9f;
+    color: #fff;
+    transition: opacity 200ms ease;
 
     &.disabled {
       pointer-events: none;
-      background-color: #705959;
-      color: #fff;
+      opacity: 0.6;
     }
 
     &:hover:not(.disabled) {
