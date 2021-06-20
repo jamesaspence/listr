@@ -29,7 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "git checkout master; git pull; yarn install --no-interactive; CI=true yarn test; yarn build;"
+    "deploy": "git checkout main; git pull; yarn install --no-interactive; CI=true yarn test; yarn build;"
   },
   "eslintConfig": {
     "extends": "react-app"
