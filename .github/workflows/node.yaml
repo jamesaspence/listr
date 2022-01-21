@@ -1,0 +1,19 @@
+name: Build
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.13.2
+      - run: yarn --frozen-lockfile
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn build
