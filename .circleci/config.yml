@@ -1,14 +1,17 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1.6
+  node: circleci/node@5.0.0
 jobs:
   build:
-    executor:
-      name: node/default
+    docker:
+      - image: 'cimg/base:stable'
     environment:
-      - CI=true
+      CI: true
     steps:
       - checkout
+      - node/install:
+          install-yarn: true
+          node-version: '16.13'
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
