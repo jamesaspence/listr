@@ -1,6 +1,6 @@
 {
   "name": "listr-client",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -29,7 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "git checkout master; git pull; yarn install --no-interactive; CI=true yarn test; yarn build;"
+    "deploy": "git checkout main; git pull; yarn install --no-interactive; CI=true yarn test; yarn build;"
   },
   "eslintConfig": {
     "extends": "react-app"
