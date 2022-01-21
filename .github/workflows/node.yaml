@@ -15,9 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Configure node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: 16.13.2
+          cache: 'yarn'
       - run: yarn --frozen-lockfile
       - run: yarn test
       - run: yarn build
