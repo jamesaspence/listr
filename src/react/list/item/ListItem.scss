@@ -38,6 +38,8 @@
     flex: 1;
     margin: 12px 0;
     line-height: 26px;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   .ListItem__text--checked {
