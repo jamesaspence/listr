@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Listr",
+  "name": "Listr - a dead simple list app",
   "icons": [
     {
       "src": "favicon.ico",
