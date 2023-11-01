@@ -1,7 +1,9 @@
 import React from 'react';
 import './Header.scss';
 import logo from '../../logo.svg';
-import { version } from '../../../package.json';
+import packageJson from '../../../package.json';
+
+const version = packageJson.version;
 
 const Header = () => {
   return (
