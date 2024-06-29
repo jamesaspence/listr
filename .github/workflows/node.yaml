@@ -1,7 +1,7 @@
 name: Build
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, develop, "feat/github-pages" ]
   pull_request:
     branches: [ main, develop ]
 jobs:
@@ -23,7 +23,7 @@ jobs:
       - run: yarn test
       - run: yarn build
       - name: Upload build
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/feat/github-pages'
         uses: actions/upload-artifact@v4
         with:
           name: build_artifact_${{ github.sha }}
