@@ -28,7 +28,7 @@ jobs:
         with:
           name: build_artifact_${{ github.sha }}
           overwrite: true
-          path: dist
+          path: build
   deploy:
     if: github.ref == 'refs/heads/feat/github-pages'
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './build'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
