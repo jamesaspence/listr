@@ -47,6 +47,7 @@ jobs:
           cache: 'yarn'
       - run: yarn --frozen-lockfile
       - run: yarn build
+      - run: ls -al ./build/
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
