@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
 import './DeleteItemsContainer.scss';
 import DeleteConfirmationModal from '../common/overlay/DeleteConfirmationModal';
+import { useDispatch, useSelector } from 'react-redux';
+import { ALL_ITEMS, CHECKED_ITEMS, deleteItems } from '../../redux/actions/list';
+import selectActiveListId from '../../redux/selectors/list/selectActiveListId';
 
 const DeleteItemsContainer = () => {
-  const [ modalOpen, setModalOpen ] = useState(false);
+  const activeList = useSelector(selectActiveListId);
+  const [ modalTypeOpen, setModalTypeOpen ] = useState(null);
+  const dispatch = useDispatch();
 
   const onConfirm = () => {
-    setModalOpen(false);
+    dispatch(deleteItems(activeList, modalTypeOpen));
+    setModalTypeOpen(null);
   };
   const onCancel = () => {
-    setModalOpen(false);
+    setModalTypeOpen(null);
   };
   const onDeleteAllClick = () => {
-    setModalOpen(true);
+    setModalTypeOpen(ALL_ITEMS);
   };
   const onDeleteCheckedClick = () => {
-    setModalOpen(true);
+    setModalTypeOpen(CHECKED_ITEMS);
   };
 
   return (
@@ -24,7 +30,7 @@ const DeleteItemsContainer = () => {
         <div className="DeleteItemsContainer__all" onClick={onDeleteAllClick}>Delete all</div>
         <div className="DeleteItemsContainer__checked" onClick={onDeleteCheckedClick}>Delete checked</div>
       </div>
-      {modalOpen && (
+      {!!modalTypeOpen && (
         <DeleteConfirmationModal onConfirm={onConfirm} onCancel={onCancel} />
       )}
     </>

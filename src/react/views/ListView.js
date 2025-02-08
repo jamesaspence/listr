@@ -12,7 +12,10 @@ const ListView = () => {
 
   return (
     <GridLayout className="ListView">
-      <DeleteItemsContainer />
+      {
+        itemCount > 0 &&
+        <DeleteItemsContainer />
+      }
       <CheckAllToggle id={'CheckAllToggle--top'} />
       <ActiveListContainer />
       {
