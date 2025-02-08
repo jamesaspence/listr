@@ -1,0 +1,27 @@
+@import '../../../variables';
+
+.DeleteConfirmationModal{
+  background-color: $app-white;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 400px;
+}
+
+.DeleteConfirmationModal__confirm, .DeleteConfirmationModal__cancel {
+  font-size: 16px;
+  margin: 12px;
+  padding: 12px;
+  border-radius: 6px;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.DeleteConfirmationModal__confirm {
+  background-color: #09cb9f;
+}
+
+.DeleteConfirmationModal__cancel {
+  background-color: #e24141;
+}
