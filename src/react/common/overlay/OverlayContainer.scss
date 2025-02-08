@@ -1,0 +1,22 @@
+@import '../../../variables';
+
+.OverlayContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.OverlayContainerBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100vh;
+  background-color: $dark-gray;
+  opacity: 0.2;
+}
