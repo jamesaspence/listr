@@ -1,4 +1,4 @@
-import { CREATE_ITEM, DELETE_ITEM, REORDER_ITEM, TOGGLE_ITEM, TOGGLE_ALL_CHECKED } from '../../actions/list';
+import { CREATE_ITEM, DELETE_ITEM, REORDER_ITEM, TOGGLE_ITEM, TOGGLE_ALL_CHECKED, DELETE_ITEMS } from '../../actions/list';
 import toggleItemReducer from './toggleItem';
 import createItemReducer from './createItem';
 import toggleAllCheckedReducer from './toggleAllChecked';
@@ -6,6 +6,7 @@ import { getDataFromStorage, clearData, hasStoredData } from '../../../util/loca
 import { generateNewId } from '../../../util/id';
 import deleteItemReducer from './deleteItem';
 import reorderItemReducer from './reorderItem';
+import deleteItemsReducer from './deleteItems';
 
 const generateInitialState = () => {
   const listId = generateNewId();
@@ -63,6 +64,8 @@ const listReducer = (state = DEFAULT_STATE, action) => {
       return reorderItemReducer(state, action);
     case TOGGLE_ALL_CHECKED:
       return toggleAllCheckedReducer(state, action);
+    case DELETE_ITEMS:
+      return deleteItemsReducer(state, action);
     default:
       return state;
   }
