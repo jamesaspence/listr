@@ -3,6 +3,7 @@
 .Footer {
   margin: auto 0 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: $footer-height;
