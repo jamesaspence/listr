@@ -24,5 +24,17 @@ exports[`matches snapshot 1`] = `
        www.flaticon.com
     </a>
   </small>
+  <small
+    className="Attribution"
+  >
+    Made with love by 
+    <a
+      className="Attribution__link"
+      href="https://www.jamesspence.dev/"
+      target="_blank"
+    >
+      James Spence
+    </a>
+  </small>
 </footer>
 `;
